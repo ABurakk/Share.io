@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/auth_nav"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.signUpStudentFragment"
+        android:label="signUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.signInFragment"
+        android:label="signInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpNormalFragment"
+            app:destination="@id/signUpNormalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpNormalFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.signUpNormalFragment"
+        android:label="signUpNormalFragment" >
+        <action
+            android:id="@+id/action_signUpNormalFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+</navigation>

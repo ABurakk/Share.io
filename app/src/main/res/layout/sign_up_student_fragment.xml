@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgruondsignup">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="410dp"
+        android:layout_height="603dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBackToMainAuth"
+        app:layout_constraintVertical_bias="0.978">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="114dp">
+
+
+            <EditText
+                android:id="@+id/etFirstName"
+                android:layout_width="290dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/firstnameinput"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <EditText
+                android:id="@+id/etLastName"
+                android:layout_width="290dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/lastnameinput"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/etFirstName"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <EditText
+                android:id="@+id/etSchool"
+                android:layout_width="290dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/lastnameinput"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/etLastName"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView9"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <EditText
+                android:id="@+id/etMajor"
+                android:layout_width="290dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/lastnameinput"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/etSchool"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <EditText
+                android:id="@+id/etMail"
+                android:layout_width="290dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/lastnameinput"
+                android:ems="10"
+                android:hint="Mail:"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="@+id/countrySpinner"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="290dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/lastnameinput"
+                android:ems="10"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="@+id/etMail"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="237dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/signupbutton"
+                app:layout_constraintEnd_toEndOf="@+id/etPassword"
+                app:layout_constraintStart_toStartOf="@+id/etPassword"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+            <Button
+                android:id="@+id/btnGoToSignIn"
+                android:layout_width="237dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/ihaveaccountbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+                app:layout_constraintHorizontal_bias="0.548"
+                app:layout_constraintStart_toStartOf="@+id/btnRegister"
+                app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+            <Spinner
+                android:id="@+id/countrySpinner"
+                android:layout_width="260dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="16dp"
+                android:entries="@array/countries_array"
+                app:layout_constraintEnd_toEndOf="@+id/etMajor"
+                app:layout_constraintHorizontal_bias="0.066"
+                app:layout_constraintStart_toStartOf="@+id/etMajor"
+                app:layout_constraintTop_toBottomOf="@+id/etMajor" />
+
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="First Name"
+                app:layout_constraintEnd_toEndOf="@+id/etFirstName"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/etFirstName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Last Name"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintStart_toStartOf="@+id/etFirstName"
+                app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="School"
+                app:layout_constraintEnd_toEndOf="@+id/textView7"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/etLastName"
+                app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Major"
+                app:layout_constraintEnd_toEndOf="@+id/textView9"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="@+id/etSchool"
+                app:layout_constraintTop_toBottomOf="@+id/etSchool" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Mail"
+                app:layout_constraintEnd_toEndOf="@+id/countrySpinner"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/countrySpinner"
+                app:layout_constraintTop_toBottomOf="@+id/countrySpinner" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="76dp"
+                android:text="Password"
+                app:layout_constraintEnd_toEndOf="@+id/textView11"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/etMail"
+                app:layout_constraintTop_toTopOf="@+id/etMail" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/btnBackToMainAuth"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "814926833195",
+    "project_id": "share-course-and-book",
+    "storage_bucket": "share-course-and-book.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814926833195:android:b6a783535d455f5cf2ec6e",
+        "android_client_info": {
+          "package_name": "com.solutionchallenge.sharecourseandbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814926833195-ut5lj4ajtjtlf8008map0qrhad60ok0u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.solutionchallenge.sharecourseandbook",
+            "certificate_hash": "0edc3700511eb631d596eb6522b07a0a41503f9a"
+          }
+        },
+        {
+          "client_id": "814926833195-jdtcc42t8on0gc0i0lm1ck9qp5i5l42r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByTs0HOoK9i7anU4wZTGyYqRfAgNxioWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814926833195-jdtcc42t8on0gc0i0lm1ck9qp5i5l42r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

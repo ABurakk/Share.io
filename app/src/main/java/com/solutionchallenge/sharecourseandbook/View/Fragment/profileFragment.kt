@@ -1,0 +1,111 @@
+package com.solutionchallenge.sharecourseandbook.View.Fragment
+
+import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingClientStateListener
+import com.android.billingclient.api.BillingResult
+import com.solutionchallenge.sharecourseandbook.R
+import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
+import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.profile_fragment.*
+
+class profileFragment :Fragment(R.layout.profile_fragment) {
+
+
+    lateinit var intentx: Intent
+    lateinit var auth: FirebaseAuth
+    lateinit var viewModel:FirestoreViewModel
+    lateinit var sharedPreferences: SharedPreferences
+    var studentCollection=Firebase.firestore.collection("normalUser")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        auth=(activity as MainActivity).auth
+        viewModel=(activity as MainActivity).viewModel
+        intentx=(activity as MainActivity).intentx
+        sharedPreferences=(activity as MainActivity).sharedPreferences
+
+
+        if(auth.currentUser==null){
+            startActivity(intentx)
+        }
+        else{
+            var mail=auth.currentUser!!.email.toString()
+            tvMail.text=mail
+            if(mail.isStudent()){
+                var livedata=viewModel.getStudentWithMail(mail)
+                livedata.observe(viewLifecycleOwner, Observer {
+                    tvName.text=it.first_name+" "+it.last_name
+                    tvNumberOfCourse.text=it.numberOfRequest.toString()+"/2"
+                    saveStudent(it.country,it.major,it.first_name,it.last_name,it.school)
+
+                })
+
+                if(auth.currentUser!!.isEmailVerified){
+                    ivVerify.setImageResource(R.drawable.ic_add_box_black_24dp)
+                    btnVerifyAccount.visibility=View.INVISIBLE
+                }
+                else{
+                    ivVerify.setImageResource(R.drawable.ic_indeterminate_check_box_black_24dp)
+                }
+
+            }
+            else{
+                fragmentTitle2.text="Number of Shared Course"
+                var liveDataUser=viewModel.getUserWithMail(mail)
+                liveDataUser.observe(viewLifecycleOwner, Observer {
+                    tvName.text=it.first_name+" "+it.last_name
+                    tvNumberOfCourse.text=it.numberOfSharedCourse.toString()
+
+                })
+            }
+
+
+        }
+
+        btnVerifyAccount.setOnClickListener {
+            auth.currentUser!!.sendEmailVerification().addOnSuccessListener {
+                Toast.makeText(activity!!.applicationContext,"Verification Link has send",Toast.LENGTH_SHORT).show()
+                auth.signOut()
+                startActivity(intentx)
+            }.addOnFailureListener {
+                Toast.makeText(activity!!.applicationContext,"Please try later",Toast.LENGTH_SHORT).show()
+
+            }
+        }
+
+        btnExit.setOnClickListener {
+            auth.signOut()
+            startActivity(intentx)
+        }
+
+
+
+    }
+
+     fun String.isStudent():Boolean{
+         if(this.contains(".edu"))
+             return true
+
+         return false
+     }
+     fun saveStudent(country:String,major:String,firstName:String,lastName:String,school:String){
+         sharedPreferences.edit().apply {
+             putString("country",country)
+             putString("major",major)
+             putString("firstName",firstName)
+             putString("lastName",lastName)
+             putString("school",school)
+         }.apply()
+     }
+
+
+}

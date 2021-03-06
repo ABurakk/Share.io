@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etSignUpNormalMail"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/lastnameinput"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/etSignUpNormalPassword"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:background="@drawable/lastnameinput"
+        app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <Button
+        android:id="@+id/btnSignUpNormalRegister"
+        android:layout_width="237dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="57dp"
+        android:background="@drawable/signupbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpNormalPassword" />
+
+    <EditText
+        android:id="@+id/etSignUpNormalName"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="198dp"
+        android:ems="10"
+        android:background="@drawable/lastnameinput"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <EditText
+        android:id="@+id/etSignUpNormalLastName"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:background="@drawable/lastnameinput"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Button
+        android:id="@+id/btnGoToSignInNormal"
+        android:layout_width="237dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ihaveaccountbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnSignUpNormalRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnSignUpNormalRegister"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUpNormalRegister"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="@+id/etSignUpNormalName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etSignUpNormalName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Last Name"
+        app:layout_constraintEnd_toEndOf="@+id/etSignUpNormalName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etSignUpNormalName"
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpNormalName" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Mail"
+        app:layout_constraintEnd_toEndOf="@+id/etSignUpNormalLastName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etSignUpNormalLastName"
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpNormalLastName" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Password"
+        app:layout_constraintEnd_toEndOf="@+id/etSignUpNormalMail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etSignUpNormalMail"
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpNormalMail" />
+</androidx.constraintlayout.widget.ConstraintLayout>

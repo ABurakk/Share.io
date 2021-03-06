@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/backgruondsignup"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/btnRequestBook"
+        android:layout_width="237dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="288dp"
+        android:background="@drawable/ineedabook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRequestOnlineCourse"
+        android:layout_width="237dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginBottom="325dp"
+        android:background="@drawable/ineddaonlinecourse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnRequestBook"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnRequestBook"
+        app:layout_constraintTop_toBottomOf="@+id/btnRequestBook"
+        app:layout_constraintVertical_bias="0.23" />
+</androidx.constraintlayout.widget.ConstraintLayout>

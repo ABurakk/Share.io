@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.profileFragment"
+        android:label="profileFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.homeFragment"
+        android:label="homeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_donateFragment"
+            app:destination="@id/donateFragment" >
+            <argument
+                android:name="courseName"
+                android:defaultValue="burak" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/requestFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.requestFragment"
+        android:label="requestFragment" >
+        <action
+            android:id="@+id/action_requestFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_requestFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_requestFragment_to_bookRequestFragment"
+            app:destination="@id/bookRequestFragment" />
+        <action
+            android:id="@+id/action_requestFragment_to_onlineCourseFragment"
+            app:destination="@id/onlineCourseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onlineCourseFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.onlineCourseFragment"
+        android:label="onlineCourseFragment" >
+        <action
+            android:id="@+id/action_onlineCourseFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookRequestFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.bookRequestFragment"
+        android:label="bookRequestFragment" >
+        <action
+            android:id="@+id/action_bookRequestFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/donateFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.donateFragment"
+        android:label="donateFragment" >
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+    </fragment>
+</navigation>
