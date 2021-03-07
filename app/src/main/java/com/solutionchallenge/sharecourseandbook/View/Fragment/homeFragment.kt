@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.billingclient.api.BillingClient
-import com.solutionchallenge.sharecourseandbook.Model.OnlineCourseRequest
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import com.solutionchallenge.sharecourseandbook.View.recyclerViewAdapters.onlineCourseAdapter

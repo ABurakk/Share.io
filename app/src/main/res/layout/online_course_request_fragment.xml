@@ -10,30 +10,41 @@
         android:id="@+id/etCourseName"
         android:layout_width="290dp"
         android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/lastnameinput"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="58dp" />
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <Button
         android:id="@+id/btnSendCourseRequest"
         android:layout_width="237dp"
         android:layout_height="39dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/sendarequest"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="536dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvCoursePricex"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="@+id/tvCoursePricex"
+        app:layout_constraintTop_toBottomOf="@+id/tvCoursePricex"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Course Link"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="30dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnTakeThisCourse"
         android:layout_width="218dp"
         android:layout_height="46dp"
         android:layout_marginTop="24dp"
@@ -47,33 +58,37 @@
         android:id="@+id/tvCoursePricex"
         android:layout_width="313dp"
         android:layout_height="34dp"
+        android:layout_marginTop="24dp"
         android:text="Price"
         android:textAllCaps="true"
         android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="469dp" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
 
     <TextView
         android:id="@+id/tvCreator"
-        android:layout_width="313dp"
-        android:layout_height="34dp"
+        android:layout_width="354dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:text="Created by *****"
         android:textAlignment="viewStart"
         android:textAllCaps="true"
         android:textColor="#000000"
         android:textSize="14sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/tvCourseNamex"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvCourseNamex"
         app:layout_constraintTop_toBottomOf="@+id/tvCourseNamex" />
 
-
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="307dp"
-        android:layout_height="126dp"
+        android:layout_width="354dp"
+        android:layout_height="129dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="@+id/tvCreator"
         app:layout_constraintHorizontal_bias="0.0"
@@ -84,17 +99,17 @@
 
     <TextView
         android:id="@+id/tvCourseNamex"
-        android:layout_width="313dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="24dp"
-        android:text="Cource Name"
+        android:layout_width="367dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="20dp"
+        android:text="Course Name"
         android:textAllCaps="true"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.147"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="@+id/btnTakeThisCourse"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTakeThisCourse"
+        app:layout_constraintTop_toBottomOf="@+id/btnTakeThisCourse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

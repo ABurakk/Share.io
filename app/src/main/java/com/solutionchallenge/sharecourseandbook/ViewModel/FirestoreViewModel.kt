@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.solutionchallenge.sharecourseandbook.Model.OnlineCourseRequest
-import com.solutionchallenge.sharecourseandbook.Model.StandartUser
-import com.solutionchallenge.sharecourseandbook.Model.StudentUser
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import kotlinx.coroutines.launch
 

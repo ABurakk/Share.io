@@ -45,7 +45,7 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
                 livedata.observe(viewLifecycleOwner, Observer {
                     tvName.text=it.first_name+" "+it.last_name
                     tvNumberOfCourse.text=it.numberOfRequest.toString()+"/2"
-                    saveStudent(it.country,it.major,it.first_name,it.last_name,it.school)
+                    saveStudent(it.country,it.major,it.first_name,it.last_name,it.school,it.numberOfRequest)
 
                 })
 
@@ -73,11 +73,11 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
 
         btnVerifyAccount.setOnClickListener {
             auth.currentUser!!.sendEmailVerification().addOnSuccessListener {
-                Toast.makeText(activity!!.applicationContext,"Verification Link has send",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),"Verification Link has send",Toast.LENGTH_SHORT).show()
                 auth.signOut()
                 startActivity(intentx)
             }.addOnFailureListener {
-                Toast.makeText(activity!!.applicationContext,"Please try later",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),"Please try later",Toast.LENGTH_SHORT).show()
 
             }
         }
@@ -97,13 +97,14 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
 
          return false
      }
-     fun saveStudent(country:String,major:String,firstName:String,lastName:String,school:String){
+     fun saveStudent(country:String,major:String,firstName:String,lastName:String,school:String,currentRequest:Int){
          sharedPreferences.edit().apply {
              putString("country",country)
              putString("major",major)
              putString("firstName",firstName)
              putString("lastName",lastName)
              putString("school",school)
+
          }.apply()
      }
 

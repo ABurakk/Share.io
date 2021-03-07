@@ -1,4 +1,6 @@
-package com.solutionchallenge.sharecourseandbook.Model
+package com.solutionchallenge.sharecourseandbook.Model.FirebaseModels
+
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 
 data class SuccesfulDonate(
     var currentuserMail:String,
@@ -7,6 +9,6 @@ data class SuccesfulDonate(
     var price:Double,
     var currency:String,
     var platformName:String,
-    var studentUser: StudentUser,
+    var studentUser: StudentUser
 ) {
 }

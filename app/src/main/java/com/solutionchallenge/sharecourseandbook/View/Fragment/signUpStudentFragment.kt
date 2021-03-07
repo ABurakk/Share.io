@@ -6,7 +6,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.solutionchallenge.sharecourseandbook.Model.StudentUser
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.authActivity
 import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
@@ -48,7 +48,15 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
             var major=etMajor.text.toString()
             var mail=etMail.text.toString()
             var password=etPassword.text.toString()
-            var studentUser=StudentUser(email = mail,first_name = name,last_name = lastName,school = school,major = major,country = country)
+            var studentUser=
+                StudentUser(
+                    email = mail,
+                    first_name = name,
+                    last_name = lastName,
+                    school = school,
+                    major = major,
+                    country = country
+                )
 
             if(name.isEmpty()||lastName.isEmpty()||school.isEmpty()||major.isEmpty()||mail.isEmpty()||password.isEmpty()){
                 Toast.makeText(activity!!.applicationContext,"Please Fill all blank",Toast.LENGTH_SHORT).show()

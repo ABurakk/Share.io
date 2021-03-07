@@ -1,8 +1,8 @@
 package com.solutionchallenge.sharecourseandbook.Repository
 
-import com.solutionchallenge.sharecourseandbook.Model.OnlineCourseRequest
-import com.solutionchallenge.sharecourseandbook.Model.StandartUser
-import com.solutionchallenge.sharecourseandbook.Model.StudentUser
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -28,11 +28,12 @@ class FireStoreRepository {
 
     suspend fun getStudentsWithEmail(email:String): StudentUser {
         var documentSnapshot=studentCollection.document(email).get().await()
-        var student:StudentUser
+        var student: StudentUser
         if(documentSnapshot!=null)
             student= documentSnapshot.toObject<StudentUser>()!!
         else
-            student= StudentUser()
+            student=
+                StudentUser()
 
 
         return student
@@ -40,14 +41,15 @@ class FireStoreRepository {
     suspend fun saveNormalUsertToCollection(mail:String,standartUser: StandartUser){
       normalUserCollection.document(mail).set(standartUser)
     }
-    suspend fun getUserWithMail(mail:String) : StandartUser{
+    suspend fun getUserWithMail(mail:String) : StandartUser {
         var documentSnapshot=normalUserCollection.document(mail).get().await()
-        var user:StandartUser
+        var user: StandartUser
         if(documentSnapshot!=null){
             user= documentSnapshot.toObject<StandartUser>()!!
         }
         else{
-            user= StandartUser()
+            user=
+                StandartUser()
 
         }
         return user

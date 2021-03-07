@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.solutionchallenge.sharecourseandbook.Model.StandartUser
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.authActivity
 import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
@@ -34,7 +34,12 @@ class signUpNormalFragment :Fragment(R.layout.sign_up_normal_fragment) {
             var lastName=etSignUpNormalLastName.text.toString()
             var mail=etSignUpNormalMail.text.toString()
             var password=etSignUpNormalPassword.text.toString()
-            var user=StandartUser(mail,name,lastName)
+            var user=
+                StandartUser(
+                    mail,
+                    name,
+                    lastName
+                )
             auth.createUserWithEmailAndPassword(mail,password).addOnSuccessListener {
               CoroutineScope(Dispatchers.IO).launch {
                   viewModel.saveNormalUserToCollection(mail,user)

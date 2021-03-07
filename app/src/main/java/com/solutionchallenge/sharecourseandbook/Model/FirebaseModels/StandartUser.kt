@@ -1,4 +1,4 @@
-package com.solutionchallenge.sharecourseandbook.Model
+package com.solutionchallenge.sharecourseandbook.Model.FirebaseModels
 
 data class StandartUser(
     var email:String="",
