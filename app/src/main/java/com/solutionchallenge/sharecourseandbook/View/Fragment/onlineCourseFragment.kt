@@ -34,44 +34,14 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
         viewModel=(activity as MainActivity).viewModel
         intentx=(activity as MainActivity).intentx
         sharedPreferences=(activity as MainActivity).sharedPreferences
+        btnSendCourseRequest.visibility=View.INVISIBLE
 
 
-        var currency="₺"
-        currncySpinner.onItemSelectedListener=object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
 
-            }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long
-            ) {
-                currency=parent?.getItemAtPosition(position).toString()
-            }
 
-        }
 
         btnSendCourseRequest.setOnClickListener {
-            var course=etCourseName.text.toString()
-            var courseLink=etCourseLink.text.toString()
-            var price=etPrice.text.toString()
-
-            var numberOfRequest:Int
-            if(course.isEmpty()||courseLink.isEmpty()||price.isEmpty()){
-                Toast.makeText(this.context,"Plase Fill In The Blanks",Toast.LENGTH_SHORT).show()
-            }
-            else{
-                var pricex=price.toDouble()
-                viewModel.getStudentWithMail(auth.currentUser?.email.toString()).observe(viewLifecycleOwner,
-                    Observer {
-                        numberOfRequest=it.numberOfRequest
-                        if(numberOfRequest<2){
-                            requestApproveDialog(this.context,course,courseLink,pricex,currency,"udemy")
-                        }
-                        else
-                            Toast.makeText(this.context,"You have not enough credit to make a request",Toast.LENGTH_SHORT).show()
-                    })
-            }
-
-
 
         }
 
