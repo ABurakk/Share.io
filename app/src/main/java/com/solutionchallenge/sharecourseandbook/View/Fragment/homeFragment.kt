@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
@@ -22,6 +23,7 @@ class homeFragment :Fragment(R.layout.home_fragment) {
     lateinit var auth:FirebaseAuth
     lateinit var adapter: onlineCourseAdapter
     lateinit var sharedPreferences: SharedPreferences
+    lateinit var circularprogress:CircularProgressDrawable
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,8 +31,9 @@ class homeFragment :Fragment(R.layout.home_fragment) {
         auth=(activity as MainActivity).auth
         sharedPreferences=(activity as MainActivity).sharedPreferences
 
+        setProgress()
 
-        adapter= onlineCourseAdapter(this.context!!, listOf(),view)
+        adapter= onlineCourseAdapter(circularprogress,requireContext(), listOf(),view)
         rvCourseRequests.adapter=adapter
         rvCourseRequests.layoutManager=LinearLayoutManager(this.context)
         Firebase.firestore.collection("request").get().addOnSuccessListener {
@@ -45,6 +48,11 @@ class homeFragment :Fragment(R.layout.home_fragment) {
 
     }
 
-
+    fun setProgress(){
+        circularprogress = CircularProgressDrawable(requireContext())
+        circularprogress.strokeWidth = 5f
+        circularprogress.centerRadius = 30f
+        circularprogress.start()
+    }
 
 }

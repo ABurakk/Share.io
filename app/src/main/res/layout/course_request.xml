@@ -7,75 +7,59 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="379dp"
-        android:layout_height="253dp"
+        android:layout_width="387dp"
+        android:layout_height="295dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_rectangle_3" />
+        app:srcCompat="@drawable/image" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="140dp"
         android:layout_height="140dp"
+        android:src="@drawable/ic_udemy_logo"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        android:src="@drawable/ic_udemy_logo"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.416"
+        app:layout_constraintVertical_bias="0.432"
         tools:srcCompat="@tools:sample/avatars[0]" />
 
     <TextView
         android:id="@+id/tvCourseName"
-        android:layout_width="205dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="32dp"
-        android:text="Course Name"
+        android:layout_width="209dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
         android:textColor="#070708"
-        android:textSize="19sp"
+        android:textSize="16sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/tvCourseLink"
-        android:layout_width="202dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Course Link"
+        android:id="@+id/tvCoursePrice"
+        android:layout_width="201dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="20dp"
         android:textColor="#070708"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/tvCourseName"
         app:layout_constraintStart_toStartOf="@+id/tvCourseName"
         app:layout_constraintTop_toBottomOf="@+id/tvCourseName" />
 
     <TextView
-        android:id="@+id/tvCoursePrice"
-        android:layout_width="201dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:text="Price"
-        android:textColor="#070708"
-        android:textSize="14sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/tvCourseLink"
-        app:layout_constraintStart_toStartOf="@+id/tvCourseLink"
-        app:layout_constraintTop_toBottomOf="@+id/tvCourseLink" />
-
-    <TextView
         android:id="@+id/tvMajorAndCountry"
-        android:layout_width="205dp"
-        android:layout_height="26dp"
+        android:layout_width="206dp"
+        android:layout_height="34dp"
         android:layout_marginTop="12dp"
-        android:text="Major and Country"
         android:textColor="#070708"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/tvCoursePrice"
         app:layout_constraintStart_toStartOf="@+id/tvCoursePrice"
@@ -89,8 +73,8 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/tvMajorAndCountry"
-        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.858"
         app:layout_constraintStart_toStartOf="@+id/tvMajorAndCountry"
         app:layout_constraintTop_toBottomOf="@+id/tvMajorAndCountry"
-        app:layout_constraintVertical_bias="0.108" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

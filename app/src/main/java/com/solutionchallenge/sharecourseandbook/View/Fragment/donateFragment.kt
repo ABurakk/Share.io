@@ -2,23 +2,16 @@ package com.solutionchallenge.sharecourseandbook.View.Fragment
 
 import android.app.Activity
 import android.content.Context
-import android.content.SharedPreferences
-import android.net.sip.SipSession
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.android.billingclient.api.*
 import com.solutionchallenge.sharecourseandbook.R
-import com.solutionchallenge.sharecourseandbook.Security.verifyPurchase
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import kotlinx.android.synthetic.main.donate_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.io.IOException
-import java.security.Security
 
 class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListener {
 
@@ -160,7 +153,7 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
             //for new play console
             //To get key go to Developer Console > Select your app > Monetize > Monetization setup
             val base64Key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqIPdG6tC66bAxgO8n/hLKi7vsKQEf4pP3MqrlapaxZmGvdsekGSqkXS6MMC42HWUDdIkXV64YkbCj4jGIoI8f4qMsv8e5A3oJ+HezT8Ac3VISefMLJ4cXorkGqsafuboySy8yGtHZrmE8ZSglgUvrt6IvlSlV125oVNHOJABhJ8JoKAMy1je+Qh9z0ElpLdT+n6h3/qkIprfQ4HNabXk2x8PEHEaciPkV+e/hbLDMOGo8Ke8lcPOqO0y1PJ99YOY/hp2cLh/uY+X+tJ2dn8O7cTDAt84WvdSXe/DeLA/w5J1OflfVzOX8V7fk7pfONN9oWIUZJHbYdm4/08bsGqq7wIDAQAB"
-            com.solutionchallenge.sharecourseandbook.Security.verifyPurchase(base64Key, signedData, signature)
+            com.solutionchallenge.sharecourseandbook.Extra.Security.verifyPurchase(base64Key, signedData, signature)
         } catch (e: IOException) {
             false
         }

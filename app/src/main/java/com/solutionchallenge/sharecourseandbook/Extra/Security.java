@@ -1,4 +1,4 @@
-package com.solutionchallenge.sharecourseandbook;
+package com.solutionchallenge.sharecourseandbook.Extra;
 
 import android.text.TextUtils;
 import android.util.Base64;
