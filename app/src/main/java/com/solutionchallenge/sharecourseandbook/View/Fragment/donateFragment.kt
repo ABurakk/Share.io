@@ -11,8 +11,12 @@ import androidx.navigation.fragment.navArgs
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.android.billingclient.api.*
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.SuccesfulDonate
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.RemoteApi.RetrofitObject
+import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import kotlinx.android.synthetic.main.course_request.view.*
 import kotlinx.android.synthetic.main.donate_fragment.*
@@ -28,35 +32,32 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
     lateinit var contextz:Context
     lateinit var billingClient: BillingClient
     lateinit var circularprogress:CircularProgressDrawable
+    lateinit var fireStoreRepository: FireStoreRepository
+    lateinit var auth:FirebaseAuth
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Establish connection to billing client
         //check purchase status from google play store cache on every app start
         contextz=(activity as MainActivity).applicationContext
 
-
+        fireStoreRepository= FireStoreRepository()
         setProgress()
         setBillingClient()
-        var courseURL=args.courseLink
+        var courseURL=args.request.courseLink
         CoroutineScope(Dispatchers.IO).launch {
             var course= RetrofitObject.apiService.getCourse(takeIDFromUrl(courseURL)).body()
 
             withContext(Dispatchers.Main){
                 tvCourseNameD.text=course?.title
                 tvCreatorOfCourse.text="This course created by "+course?.visible_instructors?.get(0)?.display_name?.toUpperCase()
-                tvMajorD.text=args.studentMajor+" Student"+" from "+args.studentCountry
+                tvMajorD.text=args.request.studentUser.major+" Student"+" from "+args.request.studentUser.country
                 Glide.with(view).load(course?.image_480x270).placeholder(circularprogress).into(imageView4D)
                 tvCoursePriceD.text=args.coursePrice
 
             }
 
         }
-
-
-
-
-
-
-
 
         billingClient!!.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(billingResult: BillingResult) {
@@ -162,7 +163,13 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
                         billingClient!!.consumeAsync(consumeParams) { billingResult, purchaseToken ->
                             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
 
+                                 var succesfulDonate=SuccesfulDonate(auth.currentUser?.email.toString(),args.request)
                                 Toast.makeText(contextz.applicationContext, "Item " + purchaseItemIDs[index] + "Consumed", Toast.LENGTH_SHORT).show()
+                                 CoroutineScope(Dispatchers.IO).launch {
+                                     fireStoreRepository.saveSuccesfulDonate(succesfulDonate)
+                                     fireStoreRepository.deleteRequest(args.request)
+
+                                 }
 
                             }
                         }

@@ -13,11 +13,7 @@
         android:label="homeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_donateFragment"
-            app:destination="@id/donateFragment" >
-            <argument
-                android:name="courseName"
-                android:defaultValue="burak" />
-        </action>
+            app:destination="@id/donateFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestFragment"
@@ -58,7 +54,8 @@
         android:label="donateFragment" >
         <argument
             android:name="studentCountry"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="Turkey" />
         <argument android:name="courseLink" />
         <argument
             android:name="studentMajor"
@@ -66,5 +63,8 @@
         <argument
             android:name="coursePrice"
             app:argType="string" />
+        <argument
+            android:name="request"
+            app:argType="com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest" />
     </fragment>
 </navigation>

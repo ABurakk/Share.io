@@ -39,46 +39,25 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
         }
         else{
             var mail=auth.currentUser!!.email.toString()
-            tvMail.text=mail
-            if(mail.isStudent()){
-                var livedata=viewModel.getStudentWithMail(mail)
-                livedata.observe(viewLifecycleOwner, Observer {
-                    tvName.text=it.first_name+" "+it.last_name
-                    tvNumberOfCourse.text=it.numberOfRequest.toString()+"/2"
-                    saveStudent(it.country,it.major,it.first_name,it.last_name,it.school,it.numberOfRequest)
-
-                })
-
-                if(auth.currentUser!!.isEmailVerified){
-                    ivVerify.setImageResource(R.drawable.ic_add_box_black_24dp)
-                    btnVerifyAccount.visibility=View.INVISIBLE
-                }
-                else{
-                    ivVerify.setImageResource(R.drawable.ic_indeterminate_check_box_black_24dp)
-                }
-
-            }
-            else{
-                fragmentTitle2.text="Number of Shared Course"
-                var liveDataUser=viewModel.getUserWithMail(mail)
-                liveDataUser.observe(viewLifecycleOwner, Observer {
-                    tvName.text=it.first_name+" "+it.last_name
-                    tvNumberOfCourse.text=it.numberOfSharedCourse.toString()
-
-                })
-            }
-
-
+            viewModel.getStudentWithMail(mail).observe(viewLifecycleOwner, Observer {
+                tvFullName.text=it.first_name+" "+it.last_name.toUpperCase()
+                tvMail.text=it.email
+            })
         }
 
+
+
         btnVerifyAccount.setOnClickListener {
+            if(auth.currentUser!!.isEmailVerified){
+                Toast.makeText(requireContext(),"This mail already verified",Toast.LENGTH_SHORT).show()
+            }
             auth.currentUser!!.sendEmailVerification().addOnSuccessListener {
                 Toast.makeText(requireContext(),"Verification Link has send",Toast.LENGTH_SHORT).show()
+                auth.currentUser?.sendEmailVerification()
                 auth.signOut()
                 startActivity(intentx)
             }.addOnFailureListener {
                 Toast.makeText(requireContext(),"Please try later",Toast.LENGTH_SHORT).show()
-
             }
         }
 

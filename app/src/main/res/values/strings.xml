@@ -7,6 +7,7 @@
         <item>€</item>
         <item>₺</item>
     </string-array>
+
     <string-array name="countries_array">
         <item>Turkey</item>
         <item>Afghanistan</item>
@@ -19,8 +20,6 @@
         <item>Antarctica</item>
         <item>Antigua and Barbuda</item>
         <item>Argentina</item>
-        <item>Armenia</item>
-        <item>Aruba</item>
         <item>Australia</item>
         <item>Austria</item>
         <item>Azerbaijan</item>
@@ -29,14 +28,7 @@
         <item>Barbados</item>
         <item>Belarus</item>
         <item>Belgium</item>
-        <item>Belize</item>
-        <item>Benin</item>
-        <item>Bermuda</item>
-        <item>Bhutan</item>
-        <item>Bolivia</item>
         <item>Bosnia and Herzegovina</item>
-        <item>Botswana</item>
-        <item>Bouvet Island</item>
         <item>Brazil</item>
         <item>British Indian Ocean Territory</item>
         <item>British Virgin Islands</item>
@@ -47,8 +39,6 @@
         <item>Cambodia</item>
         <item>Cameroon</item>
         <item>Canada</item>
-        <item>Cape Verde</item>
-        <item>Cayman Islands</item>
         <item>Central African Republic</item>
         <item>Chad</item>
         <item>Chile</item>
@@ -122,11 +112,8 @@
         <item>Kiribati</item>
         <item>Kuwait</item>
         <item>Kyrgyzstan</item>
-        <item>Laos</item>
         <item>Latvia</item>
         <item>Lebanon</item>
-        <item>Lesotho</item>
-        <item>Liberia</item>
         <item>Libya</item>
         <item>Liechtenstein</item>
         <item>Lithuania</item>
@@ -204,7 +191,6 @@
         <item>Solomon Islands</item>
         <item>Somalia</item>
         <item>South Africa</item>
-        <item>South Georgia and the South Sandwich Islands</item>
         <item>South Korea</item>
         <item>South Sudan</item>
         <item>Spain</item>

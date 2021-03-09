@@ -7,15 +7,36 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCourseRequests"
-        android:layout_width="match_parent"
-        android:layout_height="677dp"
+        android:layout_width="417dp"
+        android:layout_height="618dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFilterByCountry"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnFilterByCountry"
+        android:layout_width="174dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/filterbycountry"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnShuffle"
+        android:layout_width="174dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="26dp"
+        android:background="@drawable/shuffle"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFilterByCountry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnFilterByCountry"
+        app:layout_constraintTop_toTopOf="@+id/btnFilterByCountry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -125,7 +125,7 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
         var school=sharedPreferences.getString("school","").toString()
         var country=sharedPreferences.getString("country","").toString()
         var studentUser= StudentUser(auth.currentUser?.email.toString(), firstName, lastName, school, major, country)
-        var request=OnlineCourseRequest(auth.currentUser?.email.toString(),courseLink, studentUser)
+        var request=OnlineCourseRequest(auth.currentUser!!.email.toString(),courseLink,studentUser,false,country)
         viewModel.makeRequest(request)
         viewModel.incrementNumberOfRequestFieldİWthEmail(auth.currentUser?.email.toString())
         Navigation.findNavController(requireView()).navigate(R.id.action_onlineCourseFragment_to_profileFragment)

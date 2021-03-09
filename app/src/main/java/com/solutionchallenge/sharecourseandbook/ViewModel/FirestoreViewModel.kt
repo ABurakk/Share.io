@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.SuccesfulDonate
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import kotlinx.coroutines.launch
 
@@ -49,6 +50,9 @@ class FirestoreViewModel(private var repository: FireStoreRepository) :ViewModel
        }
     }
 
-    }
+
+
+
+}
 
 
