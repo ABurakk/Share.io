@@ -1,34 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView4D"
+        android:layout_width="332dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_udemy_logo"
+        app:layout_constraintEnd_toEndOf="@+id/tvCourseNameD"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvCourseNameD"
+        app:layout_constraintTop_toBottomOf="@+id/tvCourseNameD"
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
     <TextView
-        android:id="@+id/tvCourseNameDonateFragment"
-        android:layout_width="116dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="126dp"
-        android:layout_marginEnd="176dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:id="@+id/tvCourseNameD"
+        android:layout_width="355dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#070708"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCoursePriceD"
+        android:layout_width="357dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#070708"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvMajorAndCountryD"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvMajorAndCountryD"
+        app:layout_constraintTop_toBottomOf="@+id/tvMajorAndCountryD" />
+
+    <TextView
+        android:id="@+id/tvMajorAndCountryD"
+        android:layout_width="348dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:text="Student from ****"
+        android:textColor="#070708"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvCreatorOfCourse"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvCreatorOfCourse"
+        app:layout_constraintTop_toBottomOf="@+id/tvCreatorOfCourse" />
 
     <Button
         android:id="@+id/btnBilling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
-        android:layout_marginBottom="322dp"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCourseNameDonateFragment" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="468dp" />
+
+    <TextView
+        android:id="@+id/tvCreatorOfCourse"
+        android:layout_width="342dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="Created By ****"
+        android:textColor="#233975"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4D"
+        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintStart_toStartOf="@+id/imageView4D"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4D" />
 </androidx.constraintlayout.widget.ConstraintLayout>

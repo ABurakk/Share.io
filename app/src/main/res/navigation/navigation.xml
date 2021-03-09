@@ -59,5 +59,6 @@
         <argument
             android:name="courseName"
             app:argType="string" />
+        <argument android:name="courseLink" />
     </fragment>
 </navigation>

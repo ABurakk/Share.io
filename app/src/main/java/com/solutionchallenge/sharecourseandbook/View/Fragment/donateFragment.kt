@@ -22,6 +22,9 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
         // Establish connection to billing client
         //check purchase status from google play store cache on every app start
         contextz=(activity as MainActivity).applicationContext
+
+
+
         billingClient = BillingClient.newBuilder(this.contextz)
             .enablePendingPurchases().setListener(this).build()
         billingClient!!.startConnection(object : BillingClientStateListener {
@@ -139,13 +142,7 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
         }
     }
 
-    /**
-     * Verifies that the purchase was signed correctly for this developer's public key.
-     *
-     * Note: It's strongly recommended to perform such check on your backend since hackers can
-     * replace this method with "constant true" if they decompile/rebuild your app.
-     *
-     */
+
     private fun verifyValidSignature(signedData: String, signature: String): Boolean {
         return try {
             //for old playconsole

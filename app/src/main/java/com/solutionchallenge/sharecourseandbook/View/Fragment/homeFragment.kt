@@ -33,7 +33,7 @@ class homeFragment :Fragment(R.layout.home_fragment) {
 
         setProgress()
 
-        adapter= onlineCourseAdapter(circularprogress,requireContext(), listOf(),view)
+        adapter= onlineCourseAdapter(view,circularprogress,requireContext(), listOf(),view)
         rvCourseRequests.adapter=adapter
         rvCourseRequests.layoutManager=LinearLayoutManager(this.context)
         Firebase.firestore.collection("request").get().addOnSuccessListener {
