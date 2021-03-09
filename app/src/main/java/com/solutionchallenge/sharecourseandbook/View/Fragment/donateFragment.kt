@@ -3,30 +3,61 @@ package com.solutionchallenge.sharecourseandbook.View.Fragment
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.android.billingclient.api.*
+import com.bumptech.glide.Glide
 import com.solutionchallenge.sharecourseandbook.R
+import com.solutionchallenge.sharecourseandbook.RemoteApi.RetrofitObject
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
+import kotlinx.android.synthetic.main.course_request.view.*
 import kotlinx.android.synthetic.main.donate_fragment.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.IOException
 
 class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListener {
 
-   val args : donateFragmentArgs by navArgs()
+    val args : donateFragmentArgs by navArgs()
     lateinit var contextz:Context
     lateinit var billingClient: BillingClient
+    lateinit var circularprogress:CircularProgressDrawable
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Establish connection to billing client
         //check purchase status from google play store cache on every app start
         contextz=(activity as MainActivity).applicationContext
 
 
+        setProgress()
+        setBillingClient()
+        var courseURL=args.courseLink
+        CoroutineScope(Dispatchers.IO).launch {
+            var course= RetrofitObject.apiService.getCourse(takeIDFromUrl(courseURL)).body()
 
-        billingClient = BillingClient.newBuilder(this.contextz)
-            .enablePendingPurchases().setListener(this).build()
+            withContext(Dispatchers.Main){
+                tvCourseNameD.text=course?.title
+                tvCreatorOfCourse.text="This course created by "+course?.visible_instructors?.get(0)?.display_name?.toUpperCase()
+                tvMajorD.text=args.studentMajor+" Student"+" from "+args.studentCountry
+                Glide.with(view).load(course?.image_480x270).placeholder(circularprogress).into(imageView4D)
+                tvCoursePriceD.text=args.coursePrice
+
+            }
+
+        }
+
+
+
+
+
+
+
+
         billingClient!!.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(billingResult: BillingResult) {
                 if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
@@ -65,7 +96,10 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
 
 
 
-
+    private fun setBillingClient(){
+       billingClient = BillingClient.newBuilder(this.contextz)
+           .enablePendingPurchases().setListener(this).build()
+   }
 
     private fun initiatePurchase(PRODUCT_ID: String) {
         val skuList: MutableList<String> = ArrayList()
@@ -105,7 +139,7 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
         }
     }
 
-    fun handlePurchases(purchases: List<Purchase>) {
+    private fun handlePurchases(purchases: List<Purchase>) {
         for (purchase in purchases) {
             val index = purchaseItemIDs.indexOf(purchase.sku)
             //purchase found
@@ -156,7 +190,31 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
         }
     }
 
+    fun takeIDFromUrl(url:String):Int{
+        var numberOfSlash=0
+        var id:StringBuilder=StringBuilder("")
+        for(char in url){
+            if(char=='/')
+                numberOfSlash++
+            else if(numberOfSlash==7){
+                id.append(char)
+            }
+        }
+        try {
+            var idx=id.toString().toInt()
+            return idx
+        }catch (e :Exception){
+            Log.d("Error","${e.message}")
+            return 0
+        }
+    }
 
+    fun setProgress(){
+        circularprogress = CircularProgressDrawable(requireContext())
+        circularprogress.strokeWidth = 5f
+        circularprogress.centerRadius = 30f
+        circularprogress.start()
+    }
 
     companion object {
         const val PREF_FILE = "MyPref"

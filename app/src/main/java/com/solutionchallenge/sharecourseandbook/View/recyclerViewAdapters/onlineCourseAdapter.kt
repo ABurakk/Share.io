@@ -5,9 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -15,11 +12,8 @@ import com.bumptech.glide.Glide
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.RemoteApi.RetrofitObject
-import com.solutionchallenge.sharecourseandbook.View.Fragment.homeFragment
 import com.solutionchallenge.sharecourseandbook.View.Fragment.homeFragmentDirections
-import com.solutionchallenge.sharecourseandbook.View.Fragment.onlineCourseFragmentDirections
 import kotlinx.android.synthetic.main.course_request.view.*
-import kotlinx.android.synthetic.main.online_course_request_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,14 +53,10 @@ class onlineCourseAdapter(var viewx:View,var circularProgressDrawable: CircularP
 
          }
            btnDonate.setOnClickListener {
-
+               val action=homeFragmentDirections.actionHomeFragmentToDonateFragment("",request.studentUser.country,request.courseLink,request.studentUser.major,tvCoursePrice.text.toString())
+               Navigation.findNavController(viewx).navigate(action)
            }
        }
-        holder.itemView.btnDonate.setOnClickListener {
-            val action=homeFragmentDirections.actionHomeFragmentToDonateFragment("",request.courseLink)
-            Navigation.findNavController(viewx).navigate(action)
-
-        }
 
     }
     fun takeIDFromUrl(url:String):Int{

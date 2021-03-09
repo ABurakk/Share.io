@@ -57,8 +57,14 @@
         android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.donateFragment"
         android:label="donateFragment" >
         <argument
-            android:name="courseName"
+            android:name="studentCountry"
             app:argType="string" />
         <argument android:name="courseLink" />
+        <argument
+            android:name="studentMajor"
+            app:argType="string" />
+        <argument
+            android:name="coursePrice"
+            app:argType="string" />
     </fragment>
 </navigation>
