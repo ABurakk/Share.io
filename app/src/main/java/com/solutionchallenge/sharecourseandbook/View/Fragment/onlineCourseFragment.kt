@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -40,7 +41,11 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
         viewModel=(activity as MainActivity).viewModel
         intentx=(activity as MainActivity).intentx
         sharedPreferences=(activity as MainActivity).sharedPreferences
+
+
+        var string=sharedPreferences.getString("firstName","defVal")
         btnSendCourseRequest.visibility=View.INVISIBLE
+
         val circularProgress = CircularProgressDrawable(requireContext())
         circularProgress.strokeWidth = 5f
         circularProgress.centerRadius = 30f
@@ -90,7 +95,7 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
                 requestApproveDialog(requireContext(),url)
             }
             else{
-                Toast.makeText(requireContext(),"You havev not enough credit",Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(),"You have not enough credit",Toast.LENGTH_LONG).show()
             }
 
         }

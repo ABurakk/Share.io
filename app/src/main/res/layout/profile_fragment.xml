@@ -154,7 +154,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/btnUserandPri"
                 android:layout_width="match_parent"
                 android:layout_height="23dp"
                 app:srcCompat="@drawable/userandprivacy" />
@@ -165,7 +165,7 @@
                 android:layout_height="25dp"></ImageView>
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/btnAskedQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="23dp"
                 app:srcCompat="@drawable/askedquestion" />
@@ -176,7 +176,7 @@
                 android:layout_height="25dp"></ImageView>
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/btnContackUs"
                 android:layout_width="match_parent"
                 android:layout_height="23dp"
                 app:srcCompat="@drawable/contactus" />
@@ -187,7 +187,7 @@
                 android:layout_height="25dp"></ImageView>
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/btnExitApp"
                 android:layout_width="match_parent"
                 android:layout_height="23dp"
                 app:srcCompat="@drawable/exitapp" />

@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         intentx=Intent(this,authActivity::class.java)
         auth=FirebaseAuth.getInstance()
+
         sharedPreferences=getSharedPreferences("user", Context.MODE_PRIVATE)
 
         var repository=FireStoreRepository()

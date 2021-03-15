@@ -19,8 +19,8 @@ android {
         applicationId "com.solutionchallenge.sharecourseandbook"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 2
-        versionName "2.0"
+        versionCode 6
+        versionName "3.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

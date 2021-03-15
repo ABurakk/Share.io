@@ -3,7 +3,9 @@ package com.solutionchallenge.sharecourseandbook.View.Fragment
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,11 +21,15 @@ class requestFragment :Fragment(R.layout.request_fragment) {
     lateinit var auth:FirebaseAuth
     lateinit var viewModel: FirestoreViewModel
     lateinit var intentx: Intent
+    lateinit var sharedPreferences: SharedPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth=(activity as MainActivity).auth
         viewModel=(activity as MainActivity).viewModel
         intentx=(activity as MainActivity).intentx
+
+
+
 
         if(!auth.currentUser?.email!!.isStudent()){
              ifUserNotStudent(this.context,view)
@@ -49,19 +55,11 @@ class requestFragment :Fragment(R.layout.request_fragment) {
     fun ifUserNotStudent(context: Context?, view:View){
         var dialog=AlertDialog.Builder(context).
                 setTitle("You should register with student account to make a request").
-                setMessage("If you are student  create a student account for yourself if not gift a course from home page").
+                setMessage("You are in charitable account you can only donate Online Course").
                 setIcon(R.drawable.ic_waring).
-                setPositiveButton("Yes"){_,_->
-                     Toast.makeText(activity!!.applicationContext,"Create a student account",Toast.LENGTH_LONG).show()
-                    startActivity(intentx)
-                    auth.signOut()
-                }.
-                 setNegativeButton("No"){_,_->
-                     Toast.makeText(activity!!.applicationContext,"You can sign in after verify you email",Toast.LENGTH_LONG).show()
-                     startActivity(intentx)
-                     auth.signOut()
-
-                 }.create()
+                setPositiveButton("Donate"){_,_->
+                    Navigation.findNavController(requireView()).navigate(R.id.action_requestFragment_to_homeFragment2)
+                }.setCancelable(false).create()
 
         dialog.show()
 
@@ -69,18 +67,12 @@ class requestFragment :Fragment(R.layout.request_fragment) {
     fun ifStudentMailNotVerified(context: Context?,view: View){
         var dialog=AlertDialog.Builder(context).
         setTitle("You should verify you email adress").
-        setMessage("You can click yes button to send a verification link").
+        setMessage("You should verify youor acoount").
         setIcon(R.drawable.ic_waring).
         setPositiveButton("Yes"){_,_->
-            Toast.makeText(activity!!.applicationContext,"We have sent verification link you email adress",Toast.LENGTH_LONG).show()
-            auth.currentUser!!.sendEmailVerification()
-            Navigation.findNavController(view).navigate(R.id.action_requestFragment_to_profileFragment)
-        }.
-        setNegativeButton("No"){_,_->
             Navigation.findNavController(view).navigate(R.id.action_requestFragment_to_profileFragment)
 
-
-        }.create()
+        }.setCancelable(false).create()
 
         dialog.show()
     }

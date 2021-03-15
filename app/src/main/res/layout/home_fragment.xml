@@ -7,36 +7,46 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCourseRequests"
-        android:layout_width="417dp"
-        android:layout_height="618dp"
+        android:layout_width="411dp"
+        android:layout_height="625dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFilterByCountry"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.703" />
 
-    <Button
-        android:id="@+id/btnFilterByCountry"
-        android:layout_width="174dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/filterbycountry"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnShuffle"
-        android:layout_width="174dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="26dp"
-        android:background="@drawable/shuffle"
-        app:layout_constraintBottom_toBottomOf="@+id/btnFilterByCountry"
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/rvCourseRequests"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnFilterByCountry"
-        app:layout_constraintTop_toTopOf="@+id/btnFilterByCountry" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.095">
+
+
+        <Button
+            android:id="@+id/btnFilterByCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/filterbygroup"></Button>
+
+        <Button
+            android:id="@+id/btnShuffle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shuffle"></Button>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
