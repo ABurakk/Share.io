@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.solutionchallenge.sharecourseandbook">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.vending.BILLING" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity"></activity>
-        <activity android:name="com.solutionchallenge.sharecourseandbook.View.Activity.authActivity">
+        <activity android:name=".View.Activity.splashScreenActivity"></activity>
+        <activity android:name=".View.Activity.MainActivity" />
+        <activity android:name=".View.Activity.authActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

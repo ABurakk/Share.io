@@ -56,11 +56,11 @@
 
             <Button
                 android:id="@+id/btnBilling"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="122dp"
+                android:layout_height="42dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginBottom="36dp"
-                android:text="Button"
+                android:background="@drawable/share"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView4"
                 app:layout_constraintStart_toStartOf="@+id/textView4"

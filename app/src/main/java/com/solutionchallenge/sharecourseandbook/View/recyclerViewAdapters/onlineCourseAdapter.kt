@@ -44,7 +44,7 @@ class onlineCourseAdapter(var viewx:View,var circularProgressDrawable: CircularP
                  Glide.with(view).load(course?.image_480x270).placeholder(circularProgressDrawable).into(imageView4)
                  var cuurency=course?.price_detail?.currency_symbol
                  if(cuurency=="₺")
-                     tvCoursePrice.text="27.90₺"
+                     tvCoursePrice.text="36.90₺"
                  else if(cuurency=="€")
                      tvCoursePrice.text="11.90€"
                  else
@@ -53,7 +53,7 @@ class onlineCourseAdapter(var viewx:View,var circularProgressDrawable: CircularP
 
          }
            btnDonate.setOnClickListener {
-               val action=homeFragmentDirections.actionHomeFragmentToDonateFragment("",request.studentUser.country,request.courseLink,request.studentUser.major,tvCoursePrice.text.toString())
+               val action=homeFragmentDirections.actionHomeFragmentToDonateFragment("","","",tvCoursePrice.text.toString(),request)
                Navigation.findNavController(viewx).navigate(action)
            }
        }

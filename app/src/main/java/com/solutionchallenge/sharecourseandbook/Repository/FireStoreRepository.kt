@@ -1,5 +1,6 @@
 package com.solutionchallenge.sharecourseandbook.Repository
 
+import android.util.Log
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
@@ -15,6 +16,13 @@ class FireStoreRepository {
     var studentCollection=Firebase.firestore.collection("student")
     var normalUserCollection=Firebase.firestore.collection("normalUser")
     var requestCollection=Firebase.firestore.collection("request")
+    var succesfulDonateCollection=Firebase.firestore.collection("succesfulDonate")
+
+
+
+    suspend fun saveSuccesfulDonate(succesfulDonate: SuccesfulDonate){
+        succesfulDonateCollection.add(succesfulDonate).await()
+    }
 
 
 
@@ -57,6 +65,19 @@ class FireStoreRepository {
     }
 
     suspend fun makeRequest(request: OnlineCourseRequest)=requestCollection.add(request).await()
+
+    suspend fun deleteRequest(request: OnlineCourseRequest){
+        var documentSnapshot=requestCollection.whereEqualTo("","").
+                whereArrayContains("courseLink",request.courseLink).
+                whereEqualTo("student",request.studentUser).get().await().documents[0]
+
+        try {
+
+        }catch (e :Exception){
+            requestCollection.document(documentSnapshot.id).delete()
+        }
+
+    }
 
 
 

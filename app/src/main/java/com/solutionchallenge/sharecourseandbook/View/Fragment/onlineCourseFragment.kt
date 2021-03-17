@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -40,7 +41,11 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
         viewModel=(activity as MainActivity).viewModel
         intentx=(activity as MainActivity).intentx
         sharedPreferences=(activity as MainActivity).sharedPreferences
+
+
+        var string=sharedPreferences.getString("firstName","defVal")
         btnSendCourseRequest.visibility=View.INVISIBLE
+
         val circularProgress = CircularProgressDrawable(requireContext())
         circularProgress.strokeWidth = 5f
         circularProgress.centerRadius = 30f
@@ -90,7 +95,7 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
                 requestApproveDialog(requireContext(),url)
             }
             else{
-                Toast.makeText(requireContext(),"You havev not enough credit",Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(),"You have not enough credit",Toast.LENGTH_LONG).show()
             }
 
         }
@@ -125,7 +130,7 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
         var school=sharedPreferences.getString("school","").toString()
         var country=sharedPreferences.getString("country","").toString()
         var studentUser= StudentUser(auth.currentUser?.email.toString(), firstName, lastName, school, major, country)
-        var request=OnlineCourseRequest(auth.currentUser?.email.toString(),courseLink, studentUser)
+        var request=OnlineCourseRequest(auth.currentUser!!.email.toString(),courseLink,studentUser,false,country)
         viewModel.makeRequest(request)
         viewModel.incrementNumberOfRequestFieldİWthEmail(auth.currentUser?.email.toString())
         Navigation.findNavController(requireView()).navigate(R.id.action_onlineCourseFragment_to_profileFragment)

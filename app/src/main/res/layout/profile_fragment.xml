@@ -1,129 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="127dp"
-        android:layout_height="124dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/defaultprofile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_width="48dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="175dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnExit"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[0]" />
+        app:srcCompat="@drawable/accountsetting" />
+
+    <ImageView
+        android:id="@+id/btnExit"
+        android:layout_width="71dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logoutbutton2" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="21dp"
+        android:background="@color/thmeBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="135dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:srcCompat="@drawable/defaultprofile" />
 
     <TextView
-        android:id="@+id/tvName"
-        android:layout_width="192dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/tvFullName"
+        android:layout_width="381dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:textColor="#233975"
+        android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <TextView
         android:id="@+id/tvMail"
-        android:layout_width="321dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="36dp"
-        android:text="Mail"
+        android:layout_width="367dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textAllCaps="false"
+        android:textColor="#233975"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvName"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/tvName"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
-    <TextView
-        android:id="@+id/tvTitleOfFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="16dp"
-        android:text="Account"
-        android:textAlignment="center"
-        android:textColor="#131212"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/fragmentTitle2"
-        android:layout_width="321dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="50dp"
-        android:text="Number of Requested Course"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvMail"
-        app:layout_constraintStart_toStartOf="@+id/tvMail"
-        app:layout_constraintTop_toBottomOf="@+id/tvMail" />
-
-    <TextView
-        android:id="@+id/tvNumberOfCourse"
-        android:layout_width="108dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="32dp"
-        android:text="0"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/fragmentTitle2"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/fragmentTitle2"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentTitle2" />
+        app:layout_constraintEnd_toEndOf="@+id/tvFullName"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="@+id/tvFullName"
+        app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
 
     <ImageView
-        android:id="@+id/ivVerify"
-        android:layout_width="46dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:srcCompat="@tools:sample/avatars[0]" />
-
-    <Button
         android:id="@+id/btnVerifyAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="Verify Account"
-        app:layout_constraintBottom_toTopOf="@+id/ivVerify"
-        app:layout_constraintEnd_toEndOf="@+id/ivVerify"
-        app:layout_constraintHorizontal_bias="0.623"
-        app:layout_constraintStart_toStartOf="@+id/ivVerify"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_width="191dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMail"
+        app:srcCompat="@drawable/verifybutton4" />
 
-    <Button
-        android:id="@+id/btnExit"
-        android:layout_width="119dp"
-        android:layout_height="38dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/logoutbutton"
+    <ImageView
+        android:id="@+id/btnChangePassword"
+        android:layout_width="254dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnVerifyAccount"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="@+id/btnVerifyAccount"
+        app:layout_constraintTop_toBottomOf="@+id/btnVerifyAccount"
+        app:srcCompat="@drawable/changepassword" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/thmeBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChangePassword"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ScrollView
+        android:layout_width="411dp"
+        android:layout_height="291dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/tvNumberOfCourse"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumberOfCourse"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="413dp"
+            android:layout_height="281dp"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            app:layout_constraintVertical_bias="0.0">
+
+
+            <ImageView
+                android:id="@+id/btnUserandPri"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                app:srcCompat="@drawable/userandprivacy" />
+
+            <ImageView
+                android:id="@+id/blank"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
+
+            <ImageView
+                android:id="@+id/btnAskedQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                app:srcCompat="@drawable/askedquestion" />
+
+            <ImageView
+                android:id="@+id/blank2"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
+
+            <ImageView
+                android:id="@+id/btnContackUs"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                app:srcCompat="@drawable/contactus" />
+
+            <ImageView
+                android:id="@+id/blank3"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
+
+            <ImageView
+                android:id="@+id/btnExitApp"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                app:srcCompat="@drawable/exitapp" />
+        </LinearLayout>
+
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
