@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Share Course and Book</string>
-    
-    
+
+
     <string-array name="currency">
         <item>$</item>
         <item>€</item>

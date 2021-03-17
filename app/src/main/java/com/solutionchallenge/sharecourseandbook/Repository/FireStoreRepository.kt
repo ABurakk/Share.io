@@ -1,5 +1,6 @@
 package com.solutionchallenge.sharecourseandbook.Repository
 
+import android.util.Log
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
@@ -22,6 +23,8 @@ class FireStoreRepository {
     suspend fun saveSuccesfulDonate(succesfulDonate: SuccesfulDonate){
         succesfulDonateCollection.add(succesfulDonate).await()
     }
+
+
 
     fun incrementNumberOfRequestFieldİWthEmail(mail: String){
         studentCollection.document(mail).update("numberOfRequest",FieldValue.increment(1))

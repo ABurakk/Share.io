@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObjects
+import com.google.firebase.ktx.Firebase
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
@@ -15,9 +18,7 @@ class FirestoreViewModel(private var repository: FireStoreRepository) :ViewModel
 
 
 
-
     fun incrementNumberOfRequestFieldİWthEmail(mail:String)=repository.incrementNumberOfRequestFieldİWthEmail(mail)
-
     fun getStudentWithMail(mail: String): LiveData<StudentUser> {
         var studentLiveData = MutableLiveData<StudentUser>()
         viewModelScope.launch {

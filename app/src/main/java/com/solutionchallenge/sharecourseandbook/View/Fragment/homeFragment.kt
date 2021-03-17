@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
@@ -20,6 +21,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.coroutines.*
 
 class homeFragment :Fragment(R.layout.home_fragment) {
 
@@ -29,7 +31,7 @@ class homeFragment :Fragment(R.layout.home_fragment) {
     lateinit var sharedPreferences: SharedPreferences
     lateinit var circularprogress:CircularProgressDrawable
 
-    @SuppressLint("ResourceType")
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel=(activity as MainActivity).viewModel
@@ -43,11 +45,19 @@ class homeFragment :Fragment(R.layout.home_fragment) {
         adapter= onlineCourseAdapter(view,circularprogress,requireContext(), listOf(),view)
         rvCourseRequests.adapter=adapter
         rvCourseRequests.layoutManager=LinearLayoutManager(this.context)
-        Firebase.firestore.collection("request").get().addOnSuccessListener {
-            var list=it.toObjects<OnlineCourseRequest>()
-            adapter.list=list
-            adapter.notifyDataSetChanged()
-        }
+
+
+           Firebase.firestore.collection("request").get().addOnSuccessListener {
+
+               var list=it.toObjects<OnlineCourseRequest>().shuffled()
+
+               adapter.list=list
+               adapter.notifyDataSetChanged()
+
+           }.addOnFailureListener {
+               Toast.makeText(context,"${it.message}",Toast.LENGTH_SHORT).show()
+           }
+
 
         btnShuffle.setOnClickListener {
             Firebase.firestore.collection("request").get().addOnSuccessListener {
