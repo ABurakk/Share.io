@@ -52,6 +52,19 @@ class FirestoreViewModel(private var repository: FireStoreRepository) :ViewModel
     }
 
 
+    fun saveSuccesfulDonate(donate: SuccesfulDonate){
+        viewModelScope.launch {
+            repository.saveSuccesfulDonate(donate)
+        }
+    }
+
+    fun deleteRequest(request: OnlineCourseRequest){
+        viewModelScope.launch {
+            repository.deleteRequest(request)
+        }
+    }
+
+
 
 
 }

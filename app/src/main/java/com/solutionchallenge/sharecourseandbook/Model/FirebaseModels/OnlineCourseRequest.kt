@@ -1,6 +1,7 @@
 package com.solutionchallenge.sharecourseandbook.Model.FirebaseModels
 
 import android.os.Parcelable
+import com.google.firebase.firestore.DocumentId
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

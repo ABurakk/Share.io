@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.constraintlayout.solver.state.State
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -18,6 +19,7 @@ import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.RemoteApi.RetrofitObject
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
+import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
 import kotlinx.android.synthetic.main.course_request.view.*
 import kotlinx.android.synthetic.main.donate_fragment.*
 import kotlinx.coroutines.CoroutineScope
@@ -34,16 +36,20 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
     lateinit var circularprogress:CircularProgressDrawable
     lateinit var fireStoreRepository: FireStoreRepository
     lateinit var auth:FirebaseAuth
+    lateinit var viewModel:FirestoreViewModel
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Establish connection to billing client
         //check purchase status from google play store cache on every app start
         contextz=(activity as MainActivity).applicationContext
+        viewModel=(activity as MainActivity).viewModel
+        auth=(activity as MainActivity).auth
 
         fireStoreRepository= FireStoreRepository()
         setProgress()
         setBillingClient()
+
         var courseURL=args.request.courseLink
         CoroutineScope(Dispatchers.IO).launch {
             var course= RetrofitObject.apiService.getCourse(takeIDFromUrl(courseURL)).body()
@@ -58,6 +64,35 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
             }
 
         }
+        
+
+         btnBilling.setOnClickListener {
+
+              //initiate purchase on selected consume item click
+              //check if service is already connected
+              if (billingClient!!.isReady) {
+                  initiatePurchase("udemy_token")
+              } else {
+                  billingClient = BillingClient.newBuilder(contextz).enablePendingPurchases().setListener(this).build()
+                  billingClient!!.startConnection(object : BillingClientStateListener {
+                      override fun onBillingSetupFinished(billingResult: BillingResult) {
+                          if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                              initiatePurchase("udemy_token")
+                          } else {
+                              Toast.makeText(contextz.applicationContext, "Error " + billingResult.debugMessage, Toast.LENGTH_SHORT).show()
+                          }
+                      }
+
+                      override fun onBillingServiceDisconnected() {}
+                  })
+              }
+          }
+
+
+
+
+
+
 
         billingClient!!.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(billingResult: BillingResult) {
@@ -72,25 +107,6 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
 
             override fun onBillingServiceDisconnected() {}
         })
-        btnBilling.setOnClickListener { //initiate purchase on selected consume item click
-            //check if service is already connected
-            if (billingClient!!.isReady) {
-                initiatePurchase("udemy_token")
-            } else {
-                billingClient = BillingClient.newBuilder(contextz).enablePendingPurchases().setListener(this).build()
-                billingClient!!.startConnection(object : BillingClientStateListener {
-                    override fun onBillingSetupFinished(billingResult: BillingResult) {
-                        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                            initiatePurchase("udemy_token")
-                        } else {
-                            Toast.makeText(contextz.applicationContext, "Error " + billingResult.debugMessage, Toast.LENGTH_SHORT).show()
-                        }
-                    }
-
-                    override fun onBillingServiceDisconnected() {}
-                })
-            }
-        }
     }
 
 
@@ -162,16 +178,13 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
                             .build()
                         billingClient!!.consumeAsync(consumeParams) { billingResult, purchaseToken ->
                             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-
-                                 var succesfulDonate=SuccesfulDonate(auth.currentUser?.email.toString(),args.request)
+                                var succesfulDonate=SuccesfulDonate(auth.currentUser?.email.toString(),args.request)
                                 Toast.makeText(contextz.applicationContext, "Item " + purchaseItemIDs[index] + "Consumed", Toast.LENGTH_SHORT).show()
-                                 CoroutineScope(Dispatchers.IO).launch {
-                                     fireStoreRepository.saveSuccesfulDonate(succesfulDonate)
-                                     fireStoreRepository.deleteRequest(args.request)
 
-                                 }
-
+                                    viewModel.saveSuccesfulDonate(succesfulDonate)
+                                    viewModel.deleteRequest(args.request)
                             }
+
                         }
                     }
                 } else if (purchase.purchaseState == Purchase.PurchaseState.PENDING) {

@@ -5,5 +5,4 @@ data class StandartUser(
     var first_name:String="",
     var last_name:String="",
     var numberOfSharedCourse:Int=0
-
 )

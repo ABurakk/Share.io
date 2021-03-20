@@ -67,7 +67,6 @@
         android:layout_width="381dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
-        android:text="TextView"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#233975"
@@ -83,7 +82,6 @@
         android:layout_width="367dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
-        android:text="TextView"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#233975"
@@ -129,8 +127,8 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ScrollView
-        android:layout_width="411dp"
-        android:layout_height="291dp"
+        android:layout_width="409dp"
+        android:layout_height="152dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
