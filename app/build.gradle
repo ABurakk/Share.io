@@ -97,6 +97,11 @@ dependencies {
     implementation "com.android.billingclient:billing:3.0.0"
 
 
+    //Lottie
+    implementation 'com.airbnb.android:lottie:2.7.0'
+    implementation 'com.github.mayuce:LottieAlertDialog:1.1'
+
+
 
 
 }

@@ -6,7 +6,11 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.profileFragment"
-        android:label="profileFragment" />
+        android:label="profileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_uploadMoneyFragment"
+            app:destination="@id/uploadMoneyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.homeFragment"
@@ -69,5 +73,13 @@
         <argument
             android:name="request"
             app:argType="com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadMoneyFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.uploadMoneyFragment"
+        android:label="uploadMoneyFragment" >
+        <action
+            android:id="@+id/action_uploadMoneyFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

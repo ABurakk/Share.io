@@ -104,7 +104,7 @@
         app:srcCompat="@drawable/verifybutton4" />
 
     <ImageView
-        android:id="@+id/btnChangePassword"
+        android:id="@+id/btnUploadMoney"
         android:layout_width="254dp"
         android:layout_height="46dp"
         android:layout_marginTop="20dp"
@@ -123,12 +123,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChangePassword"
+        app:layout_constraintTop_toBottomOf="@+id/btnUploadMoney"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="152dp"
+        android:layout_width="411dp"
+        android:layout_height="182dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,6 +149,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6"
             app:layout_constraintVertical_bias="0.0">
+
 
 
             <ImageView
@@ -189,10 +190,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="23dp"
                 app:srcCompat="@drawable/exitapp" />
+
+            <ImageView
+                android:id="@+id/blank4"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
+            <ImageView
+                android:id="@+id/blank5"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
+            <ImageView
+                android:id="@+id/blank6"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
         </LinearLayout>
 
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageToken"
+        android:layout_width="32dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="36dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:srcCompat="@drawable/sharetoken" />
+
+    <TextView
+        android:id="@+id/tokenAmount"
+        android:layout_width="57dp"
+        android:layout_height="20dp"
+        android:text="0 ₺"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/imageToken"
+        app:layout_constraintStart_toEndOf="@+id/imageToken"
+        app:layout_constraintTop_toTopOf="@+id/imageToken" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

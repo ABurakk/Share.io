@@ -3,22 +3,16 @@ package com.solutionchallenge.sharecourseandbook.View.Fragment
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.android.billingclient.api.BillingClient
-import com.android.billingclient.api.BillingClientStateListener
-import com.android.billingclient.api.BillingResult
+import androidx.navigation.Navigation
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.profile_fragment.*
-import kotlin.system.exitProcess
 
 class profileFragment :Fragment(R.layout.profile_fragment) {
 
@@ -29,6 +23,8 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
     lateinit var sharedPreferences: SharedPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         auth=(activity as MainActivity).auth
         viewModel=(activity as MainActivity).viewModel
         intentx=(activity as MainActivity).intentx
@@ -40,6 +36,7 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
             startActivity(intentx)
         }
         else{
+
             var mail=auth.currentUser!!.email.toString()
             if(mail.isStudent()){
                 viewModel.getStudentWithMail(mail).observe(viewLifecycleOwner, Observer {
@@ -61,8 +58,8 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
 
         }
 
-        btnChangePassword.setOnClickListener {
-            Toast.makeText(requireContext(),"Password Changing will add",Toast.LENGTH_SHORT).show()
+        btnUploadMoney.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_uploadMoneyFragment)
         }
         btnUserandPri.setOnClickListener {
             Toast.makeText(requireContext(),"User and Privacy Aggrement",Toast.LENGTH_SHORT).show()
@@ -72,7 +69,6 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
         }
         btnContackUs.setOnClickListener {
             Toast.makeText(requireContext(),"Text to ahmetburakilhan3@gmail.com",Toast.LENGTH_LONG).show()
-
         }
         btnExitApp.setOnClickListener {
 
@@ -99,6 +95,10 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
             sharedPreferences.edit().clear()
             auth.signOut()
             startActivity(intentx)
+        }
+
+        imageToken.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_uploadMoneyFragment)
         }
 
 
