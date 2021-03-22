@@ -87,7 +87,9 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
                   })
               }
           }
+         btnDonateWithWallet.setOnClickListener {
 
+         }
 
 
 

@@ -12,5 +12,6 @@ data class StudentUser(
     var major:String="",
     var country:String="tr",
     var numberOfSharedCourse:Int=0,
-    var numberOfRequest:Int=0
+    var numberOfRequest:Int=0,
+    var shareCredit:Double=0.0
 ):Parcelable
