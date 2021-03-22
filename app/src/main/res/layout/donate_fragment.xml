@@ -10,8 +10,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,13 +35,14 @@
                 android:id="@+id/tvCourseNameD"
                 android:layout_width="362dp"
                 android:layout_height="117dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="56dp"
                 android:textColor="#070708"
                 android:textSize="28sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView20" />
 
             <TextView
                 android:id="@+id/tvCoursePriceD"
@@ -56,15 +59,17 @@
 
             <Button
                 android:id="@+id/btnBilling"
-                android:layout_width="122dp"
-                android:layout_height="42dp"
+                android:layout_width="201dp"
+                android:layout_height="51dp"
                 android:layout_marginTop="18dp"
-                android:layout_marginBottom="36dp"
-                android:background="@drawable/share"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/paywithgoogle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.526"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tvCreatorOfCourse"
@@ -119,6 +124,62 @@
                 app:layout_constraintEnd_toEndOf="@+id/tvCoursePriceD"
                 app:layout_constraintStart_toStartOf="@+id/tvCoursePriceD"
                 app:layout_constraintTop_toBottomOf="@+id/tvCoursePriceD" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="201dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/paywithwallet"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btnBilling"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/btnBilling"
+                app:layout_constraintTop_toBottomOf="@+id/btnBilling"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="167dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView19"
+                app:layout_constraintStart_toEndOf="@+id/imageView17"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/donatetext" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/settings" />
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="28dp"
+                android:background="@color/thmeBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView18"
+                tools:srcCompat="@tools:sample/avatars" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
