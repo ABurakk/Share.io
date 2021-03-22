@@ -10,6 +10,12 @@
         <action
             android:id="@+id/action_profileFragment_to_uploadMoneyFragment"
             app:destination="@id/uploadMoneyFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_myRequestsFragment"
+            app:destination="@id/myRequestsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_myDonationsFragment"
+            app:destination="@id/myDonationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -80,6 +86,22 @@
         android:label="uploadMoneyFragment" >
         <action
             android:id="@+id/action_uploadMoneyFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myRequestsFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.MyRequestsFragment"
+        android:label="MyRequestsFragment" >
+        <action
+            android:id="@+id/action_myRequestsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myDonationsFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.MyDonationsFragment"
+        android:label="MyDonationsFragment" >
+        <action
+            android:id="@+id/action_myDonationsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

@@ -12,6 +12,7 @@ import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.course_request.*
 import kotlinx.android.synthetic.main.profile_fragment.*
 
 class profileFragment :Fragment(R.layout.profile_fragment) {
@@ -58,6 +59,10 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
 
         }
 
+        btnMyRequests.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_myRequestsFragment)
+        }
+
         btnUploadMoney.setOnClickListener {
             Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_uploadMoneyFragment)
         }
@@ -73,6 +78,10 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
         btnExitApp.setOnClickListener {
 
         }
+        btnMyDonations.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_myDonationsFragment)
+        }
+
 
         btnVerifyAccount.setOnClickListener {
             if(auth.currentUser!!.isEmailVerified){

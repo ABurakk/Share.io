@@ -6,6 +6,7 @@ import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCours
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.core.OnlineState
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -20,6 +21,18 @@ class FireStoreRepository {
     var succesfulDonateCollection=Firebase.firestore.collection("succesfulDonate")
 
 
+
+    suspend fun getRequestsByMail(mail :String):List<OnlineCourseRequest>{
+       var list1= requestCollection.whereEqualTo("email","").get().await().toList()
+        var list2=ArrayList<OnlineCourseRequest>()
+        for(a in list1){
+            var request=a.toObject<OnlineCourseRequest>()
+            list2.add(request)
+        }
+
+
+        return list2
+    }
 
     suspend fun saveSuccesfulDonate(succesfulDonate: SuccesfulDonate){
         succesfulDonateCollection.add(succesfulDonate).await()

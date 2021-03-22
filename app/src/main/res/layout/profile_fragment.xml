@@ -127,8 +127,8 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ScrollView
-        android:layout_width="411dp"
-        android:layout_height="182dp"
+        android:layout_width="414dp"
+        android:layout_height="225dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,6 +151,29 @@
             app:layout_constraintVertical_bias="0.0">
 
 
+            <ImageView
+                android:id="@+id/btnMyDonations"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                app:srcCompat="@drawable/mydonationsimage" />
+
+
+            <ImageView
+                android:id="@+id/blank11"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
+
+
+            <ImageView
+                android:id="@+id/btnMyRequests"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                app:srcCompat="@drawable/myrequestimage" />
+
+            <ImageView
+                android:id="@+id/blank10"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"></ImageView>
 
             <ImageView
                 android:id="@+id/btnUserandPri"
@@ -195,10 +218,12 @@
                 android:id="@+id/blank4"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"></ImageView>
+
             <ImageView
                 android:id="@+id/blank5"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"></ImageView>
+
             <ImageView
                 android:id="@+id/blank6"
                 android:layout_width="match_parent"

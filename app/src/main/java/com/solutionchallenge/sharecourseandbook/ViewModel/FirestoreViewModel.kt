@@ -18,6 +18,8 @@ class FirestoreViewModel(private var repository: FireStoreRepository) :ViewModel
 
 
 
+
+
     fun incrementNumberOfRequestFieldİWthEmail(mail:String)=repository.incrementNumberOfRequestFieldİWthEmail(mail)
     fun getStudentWithMail(mail: String): LiveData<StudentUser> {
         var studentLiveData = MutableLiveData<StudentUser>()
