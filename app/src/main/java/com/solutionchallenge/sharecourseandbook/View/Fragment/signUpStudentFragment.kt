@@ -28,6 +28,7 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
          viewModel=(activity as authActivity).viewModel
 
         var country="Turkey"
+        var gender=""
 
         countrySpinner.onItemSelectedListener=object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -40,6 +41,17 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
             }
 
         }
+        genderSpinner.onItemSelectedListener=object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                gender="Men"
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long
+            ) {
+                gender=parent?.getItemAtPosition(position).toString()
+            }
+
+        }
         btnRegister.setOnClickListener {
             var name=etFirstName.text.toString()
             var country=country
@@ -48,15 +60,9 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
             var major=etMajor.text.toString()
             var mail=etMail.text.toString()
             var password=etPassword.text.toString()
+            var gender=gender
             var studentUser=
-                StudentUser(
-                    email = mail,
-                    first_name = name,
-                    last_name = lastName,
-                    school = school,
-                    major = major,
-                    country = country
-                )
+                StudentUser(email = mail, first_name = name, last_name = lastName, school = school, major = major, country = country,gender = gender)
 
             if(name.isEmpty()||lastName.isEmpty()||school.isEmpty()||major.isEmpty()||mail.isEmpty()||password.isEmpty()){
                 Toast.makeText(activity!!.applicationContext,"Please Fill all blank",Toast.LENGTH_SHORT).show()
@@ -91,7 +97,7 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
 
 
     fun saveStudentToCollection(mail:String,studentUser: StudentUser)= CoroutineScope(Dispatchers.IO).launch {
-        viewModel.saveStudentToCollection(mail,studentUser)
+        viewModel.saveStudentToCollection(requireContext(),mail,studentUser)
     }
 
     fun String.isValid():Boolean{

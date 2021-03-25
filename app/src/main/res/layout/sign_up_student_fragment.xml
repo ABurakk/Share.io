@@ -9,8 +9,8 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="410dp"
-        android:layout_height="603dp"
+        android:layout_width="411dp"
+        android:layout_height="589dp"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +32,12 @@
                 android:layout_height="52dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/firstnameinput"
                 android:ems="10"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.087"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -85,7 +86,6 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/lastnameinput"
                 android:ems="10"
-                android:hint="Mail:"
                 android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="@+id/countrySpinner"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -128,23 +128,54 @@
                 app:layout_constraintStart_toStartOf="@+id/btnRegister"
                 app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
-            <Spinner
-                android:id="@+id/countrySpinner"
-                android:layout_width="260dp"
-                android:layout_height="27dp"
-                android:layout_marginTop="16dp"
-                android:entries="@array/countries_array"
-                app:layout_constraintEnd_toEndOf="@+id/etMajor"
-                app:layout_constraintHorizontal_bias="0.066"
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Gender"
+                app:layout_constraintEnd_toEndOf="@+id/textView10"
+                app:layout_constraintHorizontal_bias="0.111"
                 app:layout_constraintStart_toStartOf="@+id/etMajor"
                 app:layout_constraintTop_toBottomOf="@+id/etMajor" />
 
+            <Spinner
+                android:id="@+id/genderSpinner"
+                android:layout_width="277dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="12dp"
+                android:entries="@array/gender"
+                app:layout_constraintEnd_toEndOf="@+id/tvGender"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
+            <TextView
+                android:id="@+id/tvCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Country"
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toBottomOf="@+id/genderSpinner" />
+
+            <Spinner
+                android:id="@+id/countrySpinner"
+                android:layout_width="277dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:entries="@array/countries_array"
+                app:layout_constraintEnd_toEndOf="@+id/tvCountry"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvCountry"
+                app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="52dp"
                 android:text="First Name"
                 app:layout_constraintEnd_toEndOf="@+id/etFirstName"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -176,10 +207,10 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:text="Major"
                 app:layout_constraintEnd_toEndOf="@+id/textView9"
-                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/etSchool"
                 app:layout_constraintTop_toBottomOf="@+id/etSchool" />
 

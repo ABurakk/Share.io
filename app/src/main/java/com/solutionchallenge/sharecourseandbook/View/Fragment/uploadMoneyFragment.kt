@@ -42,7 +42,8 @@ class uploadMoneyFragment :Fragment(R.layout.upload_fragment_fragment) {
             })
         }else{
             viewModel.getUserWithMail(currentUsweerMail).observe(viewLifecycleOwner, Observer {
-                walletBalanceText.text=it.shareCredit.toString()+"₺"
+                var price=String.format("%.3f", it.shareCredit).toDouble().toString()
+                walletBalanceText.text=price+"₺"
             })
         }
 

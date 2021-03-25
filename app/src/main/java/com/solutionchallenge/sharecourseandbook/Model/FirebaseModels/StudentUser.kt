@@ -11,7 +11,10 @@ data class StudentUser(
     var school:String="",
     var major:String="",
     var country:String="tr",
+    var gender:String="Women",
     var numberOfSharedCourse:Int=0,
     var numberOfRequest:Int=0,
-    var shareCredit:Double=0.0
+    var courseCertificateNumber:Int=0,
+    var shareCredit:Double=0.0,
+    var priorityPoint:Double=0.0
 ):Parcelable

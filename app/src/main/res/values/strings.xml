@@ -8,6 +8,11 @@
         <item>₺</item>
     </string-array>
 
+    <string-array name="gender">
+        <item>Women</item>
+        <item>Men</item>
+    </string-array>
+
     <string-array name="countries_array">
         <item>Turkey</item>
         <item>Afghanistan</item>

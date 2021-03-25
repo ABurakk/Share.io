@@ -1,5 +1,6 @@
 package com.solutionchallenge.sharecourseandbook.ViewModel
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,8 +29,8 @@ class FirestoreViewModel(private var repository: FireStoreRepository) :ViewModel
         return studentLiveData
     }
 
-    suspend fun saveStudentToCollection(mail: String, studentUser: StudentUser) =
-        repository.saveStudentToCollection(mail, studentUser)
+    suspend fun saveStudentToCollection(context: Context,mail: String, studentUser: StudentUser) =
+        repository.saveStudentToCollection(context,mail, studentUser)
 
     suspend fun saveNormalUserToCollection(mail: String, standartUser: StandartUser) =
         repository.saveNormalUsertToCollection(mail, standartUser)

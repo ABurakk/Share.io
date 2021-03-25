@@ -23,11 +23,14 @@
         android:layout_width="237dp"
         android:layout_height="39dp"
         android:layout_marginTop="28dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/ineddaonlinecourse"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -44,9 +47,8 @@
         android:id="@+id/imageView10"
         android:layout_width="139dp"
         android:layout_height="117dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRequestBook"
         app:srcCompat="@drawable/courseimage" />

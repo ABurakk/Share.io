@@ -14,6 +14,9 @@ import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.labters.lottiealertdialoglibrary.ClickListener
+import com.labters.lottiealertdialoglibrary.DialogTypes
+import com.labters.lottiealertdialoglibrary.LottieAlertDialog
 import kotlinx.android.synthetic.main.request_fragment.*
 
 class requestFragment :Fragment(R.layout.request_fragment) {
@@ -32,7 +35,7 @@ class requestFragment :Fragment(R.layout.request_fragment) {
 
 
         if(!auth.currentUser?.email!!.isStudent()){
-             ifUserNotStudent(this.context,view)
+            ifUserNotStudent()
         }
 
 
@@ -52,17 +55,21 @@ class requestFragment :Fragment(R.layout.request_fragment) {
 
 
 
-    fun ifUserNotStudent(context: Context?, view:View){
-        var dialog=AlertDialog.Builder(context).
-                setTitle("You should register with student account to make a request").
-                setMessage("You are in charitable account you can only donate Online Course").
-                setIcon(R.drawable.ic_waring).
-                setPositiveButton("Donate"){_,_->
+
+
+    fun ifUserNotStudent(){
+        var alertDialog : LottieAlertDialog
+        alertDialog= LottieAlertDialog.Builder(requireContext(), DialogTypes.TYPE_WARNING)
+            .setTitle("You should register with student account for this section")
+            .setDescription("You are in charitable account you can only donate Online Course")
+            .setPositiveText("Donate right now")
+            .setPositiveListener(object  : ClickListener{
+                override fun onClick(dialog: LottieAlertDialog) {
                     Navigation.findNavController(requireView()).navigate(R.id.action_requestFragment_to_homeFragment2)
-                }.setCancelable(false).create()
+                }
 
-        dialog.show()
-
+            }).build()
+        alertDialog.show()
     }
     fun ifStudentMailNotVerified(context: Context?,view: View){
         var dialog=AlertDialog.Builder(context).

@@ -37,7 +37,6 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
             startActivity(intentx)
         }
         else{
-
             var mail=auth.currentUser!!.email.toString()
             if(mail.isStudent()){
                 viewModel.getStudentWithMail(mail).observe(viewLifecycleOwner, Observer {

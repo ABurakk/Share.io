@@ -49,9 +49,12 @@ class homeFragment :Fragment(R.layout.home_fragment) {
 
            Firebase.firestore.collection("request").get().addOnSuccessListener {
 
-               var list=it.toObjects<OnlineCourseRequest>().shuffled()
+               var list=it.toObjects<OnlineCourseRequest>()
 
-               adapter.list=list
+               var list2=list.sortedBy { it.studentUser.priorityPoint }
+
+               adapter.list=list2
+
                adapter.notifyDataSetChanged()
 
            }.addOnFailureListener {
