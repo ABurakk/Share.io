@@ -69,16 +69,24 @@
             android:name="studentCountry"
             app:argType="string"
             android:defaultValue="Turkey" />
-        <argument android:name="courseLink" />
+        <argument android:name="coursePricex"
+            app:argType="float"
+            android:defaultValue="0.0" />
         <argument
-            android:name="studentMajor"
+            android:name="currency"
             app:argType="string" />
         <argument
-            android:name="coursePrice"
-            app:argType="string" />
+            android:name="courseTlPrice"
+            app:argType="float" />
         <argument
             android:name="request"
             app:argType="com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest" />
+        <action
+            android:id="@+id/action_donateFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_donateFragment_to_uploadMoneyFragment"
+            app:destination="@id/uploadMoneyFragment" />
     </fragment>
     <fragment
         android:id="@+id/uploadMoneyFragment"

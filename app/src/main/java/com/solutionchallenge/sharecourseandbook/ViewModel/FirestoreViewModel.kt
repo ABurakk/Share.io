@@ -4,9 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObjects
-import com.google.firebase.ktx.Firebase
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
@@ -54,9 +51,14 @@ class FirestoreViewModel(private var repository: FireStoreRepository) :ViewModel
     }
 
 
-    fun saveSuccesfulDonate(donate: SuccesfulDonate){
+    fun saveSuccesfulDonateForStudent(donate: SuccesfulDonate, mail:String, price:Double){
         viewModelScope.launch {
-            repository.saveSuccesfulDonate(donate)
+            repository.saveSuccesfulDonateForStudentAccount(donate,mail,price)
+        }
+    }
+    fun saveSuccesfulDonateForNormalUser(donate: SuccesfulDonate,mail: String,price: Double){
+        viewModelScope.launch {
+            repository.saveSuccesfulDonateForNormalAccount(donate,mail,price)
         }
     }
 

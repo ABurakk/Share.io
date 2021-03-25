@@ -22,24 +22,17 @@ class FireStoreRepository {
 
 
 
-    suspend fun getRequestsByMail(mail :String):List<OnlineCourseRequest>{
-       var list1= requestCollection.whereEqualTo("email","").get().await().toList()
-        var list2=ArrayList<OnlineCourseRequest>()
-        for(a in list1){
-            var request=a.toObject<OnlineCourseRequest>()
-            list2.add(request)
-        }
 
 
-        return list2
-    }
 
-    suspend fun saveSuccesfulDonate(succesfulDonate: SuccesfulDonate){
+    suspend fun saveSuccesfulDonateForStudentAccount(succesfulDonate: SuccesfulDonate,mail:String,coursePrice:Double){
         succesfulDonateCollection.add(succesfulDonate).await()
+        studentCollection.document(mail).update("shareCredit",FieldValue.increment(-coursePrice))
     }
-
-
-
+    suspend fun saveSuccesfulDonateForNormalAccount(succesfulDonate: SuccesfulDonate,mail:String,coursePrice:Double){
+        succesfulDonateCollection.add(succesfulDonate).await()
+        normalUserCollection.document(mail).update("shareCredit",FieldValue.increment(-coursePrice))
+    }
     fun incrementNumberOfRequestFieldİWthEmail(mail: String){
         studentCollection.document(mail).update("numberOfRequest",FieldValue.increment(1))
     }

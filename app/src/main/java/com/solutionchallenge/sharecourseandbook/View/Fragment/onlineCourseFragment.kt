@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -21,6 +22,9 @@ import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.labters.lottiealertdialoglibrary.ClickListener
+import com.labters.lottiealertdialoglibrary.DialogTypes
+import com.labters.lottiealertdialoglibrary.LottieAlertDialog
 import com.solutionchallenge.sharecourseandbook.RemoteApi.RetrofitObject
 import kotlinx.android.synthetic.main.online_course_request_fragment.*
 import kotlinx.coroutines.CoroutineScope
@@ -93,10 +97,10 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
 
             if(numberOfRequest<2){
                 var url=etCourseName.text.toString()
-                requestApproveDialog(requireContext(),url)
+                createQuestionDialog(url)
             }
-            else{
-                Toast.makeText(requireContext(),"You have not enough credit",Toast.LENGTH_LONG).show()
+                else{
+                createWarringAlertDialog()
             }
 
         }
@@ -107,21 +111,53 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
 
     }
 
-    fun requestApproveDialog(context: Context?,courseLink: String){
-        var dialog= AlertDialog.Builder(context).
-        setTitle("Are you sure ?").
-        setMessage("If you click yes button you will send a request us . When we approve your request we will notify with email").
-        setIcon(R.drawable.ic_waring).
-        setPositiveButton("Yes"){_,_->
-            makeRequest(courseLink)
-        }.
-        setNegativeButton("No"){_,_->
 
-        }.create()
+    fun createWarringAlertDialog(){
+        var alertDialog : LottieAlertDialog
 
-        dialog.show()
+        alertDialog= LottieAlertDialog.Builder(requireContext(), DialogTypes.TYPE_ERROR)
+            .setTitle("You have completed your course request rights")
+            .setDescription("You can only request 2 course at the same time")
+            .setPositiveText("OK")
+            .setPositiveButtonColor(Color.parseColor("#ffbb00"))
+            .setPositiveListener(object : ClickListener {
+                override fun onClick(dialog: LottieAlertDialog) {
+                    Navigation.findNavController(requireView()).navigate(R.id.action_onlineCourseFragment_to_profileFragment)
+                    dialog.dismiss()
+                }
 
+            }).build()
+        alertDialog.show()
     }
+    fun createQuestionDialog(courseLink: String){
+      var alertDialog :LottieAlertDialog
+        alertDialog=LottieAlertDialog.Builder(requireContext(),DialogTypes.TYPE_QUESTION)
+            .setTitle("Are you sure ?")
+            .setDescription("If you click yes button you will send a request us . When we approve your request we will notify with email")
+            .setPositiveText("Yes")
+            .setNegativeText("No")
+            .setPositiveButtonColor(R.color.thmeBlue)
+            .setPositiveTextColor(Color.parseColor("#ffffff"))
+            .setPositiveTextColor(Color.parseColor("#ffffff"))
+            .setNegativeButtonColor(Color.parseColor("#ffbb00"))
+            .setNegativeTextColor(Color.parseColor("#0a0906"))
+            .setPositiveListener(object :ClickListener{
+                override fun onClick(dialog: LottieAlertDialog) {
+                    makeRequest(courseLink)
+                    dialog.dismiss()
+                }
+
+            })
+            .setNegativeListener(object :ClickListener{
+                override fun onClick(dialog: LottieAlertDialog) {
+                   dialog.dismiss()
+                }
+
+            })
+            .build()
+        alertDialog.show()
+    }
+
 
 
     fun makeRequest(courseLink: String){
@@ -134,9 +170,27 @@ class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
         var request=OnlineCourseRequest(auth.currentUser!!.email.toString(),courseLink,studentUser,false,country)
         viewModel.makeRequest(request)
         viewModel.incrementNumberOfRequestFieldİWthEmail(auth.currentUser?.email.toString())
-        Navigation.findNavController(requireView()).navigate(R.id.action_onlineCourseFragment_to_profileFragment)
+        createSuccesfulRequestDialog()
     }
 
+
+    fun createSuccesfulRequestDialog(){
+        var alertDialog : LottieAlertDialog
+
+        alertDialog= LottieAlertDialog.Builder(requireContext(), DialogTypes.TYPE_SUCCESS)
+            .setTitle("You have requested this course succesfully")
+            .setDescription("We will notify via email when someone donate this course with you")
+            .setPositiveText("OK")
+            .setPositiveButtonColor(Color.parseColor("#ffbb00"))
+            .setPositiveListener(object : ClickListener {
+                override fun onClick(dialog: LottieAlertDialog) {
+                    Navigation.findNavController(requireView()).navigate(R.id.action_onlineCourseFragment_to_profileFragment)
+                    dialog.dismiss()
+                }
+
+            }).build()
+        alertDialog.show()
+    }
 
 
 

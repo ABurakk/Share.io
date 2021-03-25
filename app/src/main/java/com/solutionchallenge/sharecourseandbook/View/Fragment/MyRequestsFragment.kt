@@ -45,7 +45,7 @@ class MyRequestsFragment :Fragment(R.layout.my_requests_fragment) {
         myRequestRV.layoutManager= LinearLayoutManager(requireContext())
 
 
-        Firebase.firestore.collection("request").get().addOnSuccessListener {
+        Firebase.firestore.collection("request").whereEqualTo("userMail",auth.currentUser?.email.toString()).get().addOnSuccessListener {
             var list=it.toObjects<OnlineCourseRequest>()
             adapter.list=list
             adapter.notifyDataSetChanged()

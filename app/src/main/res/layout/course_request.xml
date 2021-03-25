@@ -43,13 +43,12 @@
 
     <TextView
         android:id="@+id/tvCoursePrice"
-        android:layout_width="201dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="138dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="16dp"
         android:textColor="#070708"
         android:textSize="14sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/tvCourseName"
         app:layout_constraintStart_toStartOf="@+id/tvCourseName"
         app:layout_constraintTop_toBottomOf="@+id/tvCourseName" />
 
@@ -57,11 +56,12 @@
         android:id="@+id/tvMajorAndCountry"
         android:layout_width="206dp"
         android:layout_height="34dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:textColor="#070708"
         android:textSize="15sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/tvCoursePrice"
+        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="@+id/tvCoursePrice"
         app:layout_constraintTop_toBottomOf="@+id/tvCoursePrice" />
 
