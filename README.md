@@ -71,12 +71,43 @@ There are ten different fragments for Main Activity. We used bottom navigation m
 ### In Home Fragment
 
 * User can see all requests in recycler view.
+* Course data taken by api via Retrofit library. We only keep course link Firestore database
 * User can filter requests by country via filter button
 * User can go donation fragment via donation button
 
+When user click the donate button 
+  * Course link send to donate fragment via Navigation Component safe-agrs library
+  * Donate Fragment opens
 
+### Donate Fragment
+
+There are two types payment options here. 
+ * Donate with Google Play app purchases
+ * Donate with wallet
+
+<img src="https://user-images.githubusercontent.com/64445944/113193834-16ff8d00-9269-11eb-9619-c4b7e0ea9820.jpg" height=500> <img src="https://user-images.githubusercontent.com/64445944/113193847-1961e700-9269-11eb-9f97-470700ef89da.jpg" height=500> <img src="https://user-images.githubusercontent.com/64445944/113193853-1a931400-9269-11eb-88d4-d58b8a7ff269.jpg" height=500> <img src="https://user-images.githubusercontent.com/64445944/113193868-1cf56e00-9269-11eb-9ec9-c3e77fbbfa80.jpg" height=500>
+
+When user click the donate with wallet button alert dialog opens and ask are you sure or not.
+
+If user wallet balance is enough 
+ * Request is saved to succesfulRequest firestore collection
+ * Request is deleted from request firestore collection
+ * Congrats dialog open
+ * Wallet balance decrease
+ * Donate mail is sent to course request owner students (for now manually)
+
+If not
+  * Insufficient Balance dialog open and shown to button to direct to myWallet fragment
   
+ 
   
+
+### MyWallet Fragment
+ <img src="https://user-images.githubusercontent.com/64445944/113199842-3f3eba00-9270-11eb-8b17-c61da57ffb4e.jpg" height=500>
+ 
+ When user click the Pay with Cryptocurrencies button user is directed to Coinbase website. User write mail and send money our account.
+ 
+ When user click the Pay with Bank Transfer bank account informations are shown
 
 
 
