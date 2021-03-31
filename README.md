@@ -2,6 +2,13 @@
 
 ### Share.io is an app that helps students who are financal means not enough reach  paid educational contents for free
 
+## Team Member 💼
+ #### Development:
+     Ahmet Burak İlhan
+ #### Design-Business Development:
+     Yusuf Anber
+   
+
 ## Our Tech Stack 💻
   * Kotlin-Android
   * Firebase Authentication
@@ -11,6 +18,7 @@
   * Adobe XD
  --- 
 # About App Content
+
 
 
 ### App Architecture
