@@ -38,7 +38,7 @@ If user logged in Main Activity opens if not Auth Activity open
 
 There are 3 fragment in Auth Activity. We use Navigation Component to manage these fragments easily
 
-
+<img src="https://user-images.githubusercontent.com/64445944/113160711-66809180-9246-11eb-978c-f6eac3e46c30.jpg" height=500> <img src="https://user-images.githubusercontent.com/64445944/113160725-684a5500-9246-11eb-93cd-2f3873e8ef3b.jpg" height=500> <img src="https://user-images.githubusercontent.com/64445944/113160730-6a141880-9246-11eb-8779-1c5e7373f55f.jpg" height=500> 
 
 ---
 ### Main Activity
