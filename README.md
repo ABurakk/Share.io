@@ -47,7 +47,38 @@ There are ten different fragments for Main Activity. We used bottom navigation m
  * Request Fragment
  * Profile Fragment
  
-<img src="" height=500> <img src="" height=500> <img src="" height=500>
+<img src="https://user-images.githubusercontent.com/64445944/113181882-ef092d00-925a-11eb-9322-fec9c992a2ee.jpg" height=500> <img src="https://user-images.githubusercontent.com/64445944/113181691-bb2e0780-925a-11eb-8e3d-fc3818436062.jpg" height=500> <img src="https://user-images.githubusercontent.com/64445944/113181704-bd906180-925a-11eb-86da-64f3270eaf8b.jpg" height=500>
+
+### In Profile Fragment 
+
+#### User can 
+
+* Verify account
+* Look name and email
+* Go myWallet fragment
+* Go myRequests Fragment (for only Student)
+* Go myDonations Fragment
+* Log out.
+
+### In Course Requests Fragment
+
+#### There three possibilities here.
+
+* If user type is student and verified user can go onlineCourseRequests Fragment and bookRequestsFragment(not available for this version).
+* If user type is student but not verified an alert dialog about verification is shown by application
+* If user type not student an alert dialog about user can only donation is shown by app by application
+
+### In Home Fragment
+
+* User can see all requests in recycler view.
+* User can filter requests by country via filter button
+* User can go donation fragment via donation button
+
+
+  
+  
+
+
 
 ---
 
