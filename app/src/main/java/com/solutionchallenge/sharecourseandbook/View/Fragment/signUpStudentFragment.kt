@@ -58,7 +58,7 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
             var lastName=etLastName.text.toString()
             var school=etSchool.text.toString()
             var major=etMajor.text.toString()
-            var mail=etMail.text.toString()
+            var mail=etPassword.text.toString()
             var password=etPassword.text.toString()
             var gender=gender
             var studentUser=
