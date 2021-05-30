@@ -88,10 +88,6 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
         btnGoToSignIn.setOnClickListener {
              Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_signInFragment)
         }
-        btnBackToMainAuth.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_signInFragment)
-
-        }
 
     }
 

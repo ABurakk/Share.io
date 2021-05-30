@@ -9,15 +9,14 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="411dp"
-        android:layout_height="589dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="415dp"
+        android:layout_height="515dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBackToMainAuth"
-        app:layout_constraintVertical_bias="0.978">
+        app:layout_constraintTop_toBottomOf="@+id/imageView22">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -175,7 +174,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="25dp"
                 android:text="First Name"
                 app:layout_constraintEnd_toEndOf="@+id/etFirstName"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -240,15 +239,15 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/btnBackToMainAuth"
-        android:layout_width="38dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/imageView22"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="184dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

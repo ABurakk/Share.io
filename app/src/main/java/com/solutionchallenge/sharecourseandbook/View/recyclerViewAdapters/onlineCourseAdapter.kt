@@ -69,6 +69,7 @@ class onlineCourseAdapter(var viewx:View,var circularProgressDrawable: CircularP
 
          }
            btnDonate.setOnClickListener {
+
                val action=homeFragmentDirections.actionHomeFragmentToDonateFragment("",coursePrice.toFloat(),"$cuurency",courseTlPrice.toFloat(),request)
                Navigation.findNavController(viewx).navigate(action)
            }

@@ -27,13 +27,10 @@ class MyRequestsFragment :Fragment(R.layout.my_requests_fragment) {
 
     lateinit var adapter: myRequestsAdapter
     lateinit var auth: FirebaseAuth
-    lateinit var viewModel:FirestoreViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth=(activity as MainActivity).auth
-        viewModel=(activity as MainActivity).viewModel
 
-        var repository=FireStoreRepository()
 
         btnBackToProfile4.setOnClickListener {
             Navigation.findNavController(requireView()).navigate(R.id.action_myRequestsFragment_to_profileFragment)

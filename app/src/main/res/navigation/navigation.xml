@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/uploadMoneyFragment"
-        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.uploadMoneyFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.walletFragment"
         android:label="uploadMoneyFragment" >
         <action
             android:id="@+id/action_uploadMoneyFragment_to_profileFragment"

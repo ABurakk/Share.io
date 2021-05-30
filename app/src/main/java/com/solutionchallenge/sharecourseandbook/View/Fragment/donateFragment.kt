@@ -279,19 +279,16 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
     private fun handlePurchases(purchases: List<Purchase>) {
         for (purchase in purchases) {
             val index = purchaseItemIDs.indexOf(purchase.sku)
-            //purchase found
+
             if (index > -1) {
 
-                //if item is purchased
                 if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
                     if (!verifyValidSignature(purchase.originalJson, purchase.signature)) {
-                        // Invalid purchase
-                        // show error to user
+
                         Toast.makeText(contextz.applicationContext, "Error : Invalid Purchase", Toast.LENGTH_SHORT).show()
-                        continue  //skip current iteration only because other items in purchase list must be checked if present
+                        continue
                     }
-                    // else purchase is valid
-                    //if item is purchased and not consumed
+
                     if (!purchase.isAcknowledged) {
                         val consumeParams = ConsumeParams.newBuilder()
                             .setPurchaseToken(purchase.purchaseToken)
@@ -317,10 +314,6 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
     }
     private fun verifyValidSignature(signedData: String, signature: String): Boolean {
         return try {
-            //for old playconsole
-            // To get key go to Developer Console > Select your app > Development Tools > Services & APIs.
-            //for new play console
-            //To get key go to Developer Console > Select your app > Monetize > Monetization setup
             val base64Key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqIPdG6tC66bAxgO8n/hLKi7vsKQEf4pP3MqrlapaxZmGvdsekGSqkXS6MMC42HWUDdIkXV64YkbCj4jGIoI8f4qMsv8e5A3oJ+HezT8Ac3VISefMLJ4cXorkGqsafuboySy8yGtHZrmE8ZSglgUvrt6IvlSlV125oVNHOJABhJ8JoKAMy1je+Qh9z0ElpLdT+n6h3/qkIprfQ4HNabXk2x8PEHEaciPkV+e/hbLDMOGo8Ke8lcPOqO0y1PJ99YOY/hp2cLh/uY+X+tJ2dn8O7cTDAt84WvdSXe/DeLA/w5J1OflfVzOX8V7fk7pfONN9oWIUZJHbYdm4/08bsGqq7wIDAQAB"
             com.solutionchallenge.sharecourseandbook.Extra.Security.verifyPurchase(base64Key, signedData, signature)
         } catch (e: IOException) {
@@ -354,8 +347,6 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
     companion object {
         const val PREF_FILE = "MyPref"
 
-        //note add unique product ids
-        //use same id for preference key
         private val purchaseItemIDs: ArrayList<String> = object : ArrayList<String>() {
             init {
                 add("udemy_token")

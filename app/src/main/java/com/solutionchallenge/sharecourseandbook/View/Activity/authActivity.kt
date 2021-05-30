@@ -40,14 +40,12 @@ class authActivity : AppCompatActivity() {
         if(auth.currentUser!=null){
             startActivity(intentx)
         }
-        var intent=Intent()
         viewModel= ViewModelProvider(this,factory).get(FirestoreViewModel::class.java)
 
 
+    }
 
-
-
-
-
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

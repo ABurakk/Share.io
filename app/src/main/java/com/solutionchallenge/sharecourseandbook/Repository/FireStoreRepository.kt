@@ -1,27 +1,20 @@
 package com.solutionchallenge.sharecourseandbook.Repository
 
 import android.content.Context
-import android.os.ParcelFileDescriptor.open
 import android.util.Log
-import android.widget.Toast
 import com.google.common.reflect.TypeToken
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.core.OnlineState
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.SuccesfulDonate
-import com.solutionchallenge.sharecourseandbook.Model.humanDevelopmentIndexItem
-import com.solutionchallenge.sharecourseandbook.R
-import com.solutionchallenge.sharecourseandbook.Utils.constant
+import com.solutionchallenge.sharecourseandbook.Model.LocalModels.humanDevelopmentIndexItem
 import kotlinx.coroutines.tasks.await
 import java.io.IOException
-import java.io.InputStream
-import java.nio.channels.AsynchronousSocketChannel.open
 
 
 class FireStoreRepository {
@@ -94,13 +87,10 @@ class FireStoreRepository {
             whereEqualTo("userMail",request.studentUser.email).get().await().documents[0]
 
             requestCollection.document(documentSnapshot.id).delete()
-
-
-
+        
     }
 
-
-    //Wi give prioity students who live in poor country. With this function we detirmemine this point
+    //We give prioity students who live in poor country and girl. With this function we detirmine their status
     private fun takeRankOfHumanDevelopemntIndexGivenCountry(context: Context,country:String):Int{
 
         try {

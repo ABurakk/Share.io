@@ -3,25 +3,21 @@ package com.solutionchallenge.sharecourseandbook.View.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.android.billingclient.api.BillingClient
-import com.android.billingclient.api.BillingClientStateListener
-import com.android.billingclient.api.BillingResult
-import com.android.billingclient.api.PurchasesUpdatedListener
+import com.google.firebase.auth.FirebaseAuth
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
 import com.solutionchallenge.sharecourseandbook.ViewModel.ViewModelFactory
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,10 +40,15 @@ class MainActivity : AppCompatActivity() {
         viewModel=ViewModelProvider(this,factory).get(FirestoreViewModel::class.java)
         var fragment=navHost.view!!.layoutParams
 
+
+
         var metric = DisplayMetrics()
         fragment.width=metric.widthPixels
         fragment.height=metric.heightPixels
 
+
+        val colorDrawable = ColorDrawable(Color.parseColor("#FFFFFF"))
+        bottomNavigationView.setBackgroundColor(colorDrawable.color)
 
         bottomNavigationView.setupWithNavController(navHost.findNavController())
 
