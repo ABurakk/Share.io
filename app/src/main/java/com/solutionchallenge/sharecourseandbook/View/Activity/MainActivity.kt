@@ -16,9 +16,10 @@ import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
 import com.solutionchallenge.sharecourseandbook.ViewModel.ViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 

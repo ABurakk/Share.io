@@ -3,53 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/backgruondsignup"
     android:layout_height="match_parent">
 
 
-    <Button
-        android:id="@+id/btnRequestBook"
-        android:layout_width="237dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/ineedabook"
-        app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
-    <Button
-        android:id="@+id/btnRequestOnlineCourse"
-        android:layout_width="237dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/ineddaonlinecourse"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="112dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="196dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bookimage" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="139dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRequestBook"
-        app:srcCompat="@drawable/courseimage" />
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView8"
+                app:layout_constraintStart_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                app:srcCompat="@drawable/bookimage" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="84dp"
+                android:layout_height="74dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toEndOf="@+id/btnRequestBook"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/btnRequestBook"
+                app:layout_constraintTop_toBottomOf="@+id/btnRequestBook"
+                app:srcCompat="@drawable/courseimage" />
+
+            <ImageView
+                android:id="@+id/imageView25"
+                android:layout_width="119dp"
+                android:layout_height="98dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logosss" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="205dp"
+                android:layout_height="69dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/bungee_regular"
+                android:text="share.io"
+                android:textColor="@color/colorPrimary"
+                android:textSize="34dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView25"
+                app:layout_constraintHorizontal_bias="0.545"
+                app:layout_constraintStart_toStartOf="@+id/imageView25"
+                app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+
+            <Button
+                android:id="@+id/btnRequestOnlineCourse"
+                android:layout_width="301dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="@font/tahoma_bold"
+                android:text="I NEED AN ONLINE COURSE "
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView10"
+                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+            <Button
+                android:id="@+id/btnRequestBook"
+                android:layout_width="301dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="@font/tahoma_bold"
+                android:text="I NEED A BOOK"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/imageView9"
+                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintStart_toStartOf="@+id/imageView9"
+                app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

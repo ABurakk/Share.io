@@ -44,7 +44,7 @@ class requestFragment :Fragment(R.layout.request_fragment) {
         }
 
         btnRequestBook.setOnClickListener {
-              Toast.makeText(this.context,"This section not available for now",Toast.LENGTH_SHORT).show()
+              Navigation.findNavController(view).navigate(R.id.action_requestFragment_to_bookRequestFragment)
         }
 
         btnRequestOnlineCourse.setOnClickListener {

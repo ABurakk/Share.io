@@ -3,15 +3,12 @@ package com.solutionchallenge.sharecourseandbook.Repository
 import android.content.Context
 import android.util.Log
 import com.google.common.reflect.TypeToken
-import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
-import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
-import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
-import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.SuccesfulDonate
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.*
 import com.solutionchallenge.sharecourseandbook.Model.LocalModels.humanDevelopmentIndexItem
 import kotlinx.coroutines.tasks.await
 import java.io.IOException
@@ -19,13 +16,11 @@ import java.io.IOException
 
 class FireStoreRepository {
 
-    var studentCollection=Firebase.firestore.collection("student")
-    var normalUserCollection=Firebase.firestore.collection("normalUser")
-    var requestCollection=Firebase.firestore.collection("request")
-    var succesfulDonateCollection=Firebase.firestore.collection("succesfulDonate")
-
-
-
+    private var studentCollection=Firebase.firestore.collection("student")
+    private var normalUserCollection=Firebase.firestore.collection("normalUser")
+    private var requestCollection=Firebase.firestore.collection("request")
+    private var succesfulDonateCollection=Firebase.firestore.collection("succesfulDonate")
+    private var books=Firebase.firestore.collection("Books")
 
 
 
@@ -52,6 +47,23 @@ class FireStoreRepository {
     }
     fun saveNormalUsertToCollection(mail:String,standartUser: StandartUser){
         normalUserCollection.document(mail).set(standartUser)
+    }
+
+    suspend fun getBooks():List<Book>{
+        var bookList= mutableListOf<Book>()
+        var querySnapshot=books.get().await()
+
+        try {
+            for(book in querySnapshot){
+                var bookx = book.toObject<Book>()
+                bookList.add(bookx)
+            }
+
+        }catch (e:Exception){
+            Log.d("getList",e.toString())
+        }
+
+        return bookList
     }
 
     suspend fun getStudentsWithEmail(email:String): StudentUser {

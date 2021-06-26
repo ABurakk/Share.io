@@ -21,15 +21,17 @@ class myRequestsAdapter(var list: List<OnlineCourseRequest>,var contextx: Contex
 
     class myRequestsViewHolder(item: View) :RecyclerView.ViewHolder(item)
 
+
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myRequestsViewHolder {
         var view=LayoutInflater.from(contextx).inflate(R.layout.course_request,parent,false)
         return myRequestsViewHolder(view)
     }
-
     override fun getItemCount(): Int {
         return list.size
     }
-
     override fun onBindViewHolder(holder: myRequestsViewHolder, position: Int) {
 
 
@@ -60,6 +62,10 @@ class myRequestsAdapter(var list: List<OnlineCourseRequest>,var contextx: Contex
 
 
     }
+
+
+
+    //Helper Functions
     fun takeIDFromUrl(url: String): Int {
         var numberOfSlash = 0
         var id: StringBuilder = StringBuilder("")
