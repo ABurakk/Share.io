@@ -1,15 +1,11 @@
 package com.solutionchallenge.sharecourseandbook.View.Fragment
 
-import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
@@ -21,9 +17,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.Book
+import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.BookRequest
+import com.solutionchallenge.sharecourseandbook.View.recyclerViewAdapters.bookDonateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.home_fragment.*
-import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class homeFragment :Fragment(R.layout.home_fragment) {
@@ -31,6 +29,7 @@ class homeFragment :Fragment(R.layout.home_fragment) {
     lateinit var viewModel: FirestoreViewModel
     lateinit var auth:FirebaseAuth
     lateinit var adapter: onlineCourseAdapter
+    lateinit var adapter2:bookDonateAdapter
     lateinit var sharedPreferences: SharedPreferences
     lateinit var circularprogress:CircularProgressDrawable
 
@@ -66,15 +65,26 @@ class homeFragment :Fragment(R.layout.home_fragment) {
                Toast.makeText(context,"${it.message}",Toast.LENGTH_SHORT).show()
            }
 
+        btnDonateCourse.setOnClickListener {
 
-        btnShuffle.setOnClickListener {
+             adapter2= bookDonateAdapter(listOf(),requireView())
+             rvCourseRequests.adapter=adapter2
+
+            Firebase.firestore.collection("bookRequest").get().addOnSuccessListener {
+                var list=it.toObjects<BookRequest>()
+
+                adapter2.list=list
+                adapter2.notifyDataSetChanged()
+            }
+        }
+
+
+        btnDonateBook.setOnClickListener {
 
         }
 
 
-        btnFilterByCountry.setOnClickListener {
 
-        }
 
 
 
