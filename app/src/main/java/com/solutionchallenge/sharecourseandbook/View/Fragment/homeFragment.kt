@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -20,9 +21,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.coroutines.*
 
+@AndroidEntryPoint
 class homeFragment :Fragment(R.layout.home_fragment) {
 
     lateinit var viewModel: FirestoreViewModel
@@ -55,6 +58,8 @@ class homeFragment :Fragment(R.layout.home_fragment) {
 
                adapter.list=list2
 
+               Log.d("belhanda",list2.size.toString())
+
                adapter.notifyDataSetChanged()
 
            }.addOnFailureListener {
@@ -63,31 +68,12 @@ class homeFragment :Fragment(R.layout.home_fragment) {
 
 
         btnShuffle.setOnClickListener {
-            Firebase.firestore.collection("request").get().addOnSuccessListener {
 
-                var list=it.toObjects<OnlineCourseRequest>().shuffled()
-                adapter.list=list
-                adapter.notifyDataSetChanged()
-
-            }.addOnFailureListener {
-                Toast.makeText(context,"${it.message}",Toast.LENGTH_SHORT).show()
-            }
         }
 
 
         btnFilterByCountry.setOnClickListener {
-            var i=0
-            AlertDialog.Builder(requireContext()).setSingleChoiceItems(array,0){
-                dialog, which ->
-                i=which
-            }.setPositiveButton("Filter"){
-                _,_->Firebase.firestore.collection("request").whereEqualTo("country",array.get(i)).get().addOnSuccessListener {
-                var list=it.toObjects<OnlineCourseRequest>().shuffled()
-                adapter.list=list
-                adapter.notifyDataSetChanged()
-            }
 
-            }.create().show()
         }
 
 

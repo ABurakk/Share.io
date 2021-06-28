@@ -124,7 +124,7 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
                  .setPositiveTextColor(Color.parseColor("#ffffff"))
                  .setNegativeButtonColor(Color.parseColor("#ffbb00"))
                  .setNegativeTextColor(Color.parseColor("#0a0906"))
-                 .setPositiveListener(object :ClickListener{
+                 .setPositiveListener(object : ClickListener {
                      override fun onClick(dialog: LottieAlertDialog) {
                           if(currentUserMail.isStudent()){
                               if(curentUserBalance>args.coursePricex){

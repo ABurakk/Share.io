@@ -33,17 +33,21 @@
 
         <Button
             android:id="@+id/btnFilterByCountry"
-            android:layout_width="wrap_content"
+            android:layout_width="1dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/filterbygroup"></Button>
+            android:text="DONATE ONLINE COURSE"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimary"></Button>
 
         <Button
             android:id="@+id/btnShuffle"
-            android:layout_width="wrap_content"
+            android:layout_width="1dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/shuffle"></Button>
+            android:text="DONATE BOOK"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimary"></Button>
 
 
     </LinearLayout>
