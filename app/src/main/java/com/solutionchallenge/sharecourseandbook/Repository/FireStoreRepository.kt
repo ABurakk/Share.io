@@ -21,6 +21,7 @@ class FireStoreRepository {
     private var requestCollection=Firebase.firestore.collection("request")
     private var succesfulDonateCollection=Firebase.firestore.collection("succesfulDonate")
     private var books=Firebase.firestore.collection("Books")
+    private var bookRequestCollection=Firebase.firestore.collection("bookRequest")
 
 
 
@@ -129,6 +130,14 @@ class FireStoreRepository {
         }
        return 0
     }
+
+    suspend  fun saveBookRequest(userMail:String,book:Book){
+       bookRequestCollection.add(BookRequest(userMail,book)).await()
+    }
+
+
+
+
     private fun getJsonDataFromAsset(context: Context, fileName: String): String? {
         val jsonString: String
         try {
@@ -139,5 +148,6 @@ class FireStoreRepository {
         }
         return jsonString
     }
+
 
 }

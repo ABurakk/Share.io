@@ -53,7 +53,7 @@ class bookRequestFragment :Fragment(R.layout.book_request_fragment) {
 
             }
             else{
-              Log.d("belhanda","Hata")
+              Log.d("BookRequest List","Hata")
             }
         })
     }

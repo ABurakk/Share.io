@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.Book
 import com.solutionchallenge.sharecourseandbook.R
+import com.solutionchallenge.sharecourseandbook.View.Fragment.bookRequestFragmentDirections
 import kotlinx.android.synthetic.main.book_request_view.view.*
 
 class bookRequestAdapter(var bookList:List<Book>,var view:View) : RecyclerView.Adapter<bookRequestAdapter.bookRequestViewHolder>() {
@@ -40,7 +42,8 @@ class bookRequestAdapter(var bookList:List<Book>,var view:View) : RecyclerView.A
                 tvBookPrice.text=book.price.toString()+book.currency
 
                 btnBookDonate.setOnClickListener {
-                    Toast.makeText(context,"${tvBookName},${tvBookAuthor}",Toast.LENGTH_LONG).show()
+                       var action=bookRequestFragmentDirections.actionBookRequestFragmentToBookRequestFragmentApprove(book.author_name,book.image_url,book.name,book.price,book.currency,book.book_kind)
+                       Navigation.findNavController(view).navigate(action)
                 }
 
         }
