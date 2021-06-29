@@ -67,8 +67,29 @@ class homeFragment :Fragment(R.layout.home_fragment) {
 
         btnDonateCourse.setOnClickListener {
 
-             adapter2= bookDonateAdapter(listOf(),requireView())
-             rvCourseRequests.adapter=adapter2
+            Firebase.firestore.collection("request").get().addOnSuccessListener {
+
+                var list=it.toObjects<OnlineCourseRequest>()
+
+                var list2=list.sortedBy { it.studentUser.priorityPoint }
+
+                adapter.list=list2
+
+                Log.d("belhanda",list2.size.toString())
+
+                adapter.notifyDataSetChanged()
+
+                rvCourseRequests.adapter=adapter
+            }.addOnFailureListener {
+                Toast.makeText(context,"${it.message}",Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+
+        btnDonateBook.setOnClickListener {
+            adapter2= bookDonateAdapter(listOf(),requireView())
+            rvCourseRequests.adapter=adapter2
 
             Firebase.firestore.collection("bookRequest").get().addOnSuccessListener {
                 var list=it.toObjects<BookRequest>()
@@ -76,11 +97,6 @@ class homeFragment :Fragment(R.layout.home_fragment) {
                 adapter2.list=list
                 adapter2.notifyDataSetChanged()
             }
-        }
-
-
-        btnDonateBook.setOnClickListener {
-
         }
 
 

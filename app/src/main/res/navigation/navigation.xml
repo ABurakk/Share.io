@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_homeFragment_to_donateFragment"
             app:destination="@id/donateFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bookDonateFragment"
+            app:destination="@id/bookDonateFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestFragment"
@@ -141,5 +144,25 @@
         <action
             android:id="@+id/action_bookRequestFragmentApprove_to_profileFragment"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookDonateFragment"
+        android:name="com.solutionchallenge.sharecourseandbook.View.Fragment.bookDonateFragment"
+        android:label="bookDonateFragment" >
+        <argument
+            android:name="BookName"
+            app:argType="string" />
+        <argument
+            android:name="BookAuthor"
+            app:argType="string" />
+        <argument
+            android:name="BookPrice"
+            app:argType="integer" />
+        <argument
+            android:name="Owner"
+            app:argType="string" />
+        <argument
+            android:name="BookImageUrl"
+            app:argType="string" />
     </fragment>
 </navigation>

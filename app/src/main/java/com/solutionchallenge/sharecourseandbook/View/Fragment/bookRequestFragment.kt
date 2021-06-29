@@ -3,6 +3,7 @@ package com.solutionchallenge.sharecourseandbook.View.Fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,6 +29,13 @@ class bookRequestFragment :Fragment(R.layout.book_request_fragment) {
 
         viewModel=ViewModelProvider(this).get(BookRequestViewModel::class.java)
 
+
+
+
+        val typelist= listOf("Leadership","Project Management","Personal Developemnt","Science","NY Times Bestseller")
+        val adapterx = ArrayAdapter(requireContext(), R.layout.spinner_custom_layout, typelist)
+
+        autocomplete.setAdapter(adapterx)
 
         bookList= listOf()
         viewModel.getBookList()

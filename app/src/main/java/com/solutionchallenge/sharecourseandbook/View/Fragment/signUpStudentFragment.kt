@@ -1,6 +1,7 @@
 package com.solutionchallenge.sharecourseandbook.View.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -58,7 +59,7 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
             var lastName=etLastName.text.toString()
             var school=etSchool.text.toString()
             var major=etMajor.text.toString()
-            var mail=etPassword.text.toString()
+            var mail=etMail.text.toString()
             var password=etPassword.text.toString()
             var gender=gender
             var studentUser=
@@ -68,9 +69,10 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
                 Toast.makeText(activity!!.applicationContext,"Please Fill all blank",Toast.LENGTH_SHORT).show()
             }
             else if(!mail.isValid()){
+
                 Toast.makeText(activity!!.applicationContext,"Please use student maill adresss",Toast.LENGTH_SHORT).show()
             }
-            else if(mail.isValid()){
+            else{
                 auth.createUserWithEmailAndPassword(mail,password).addOnSuccessListener {
                     Toast.makeText(activity!!.applicationContext,"You have succefully registerd,Please don't forget verify yout email",Toast.LENGTH_LONG).show()
                     saveStudentToCollection(mail,studentUser)
@@ -97,7 +99,7 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
     }
 
     fun String.isValid():Boolean{
-        if(this.contains(".edu"))
+        if(this.contains("edu"))
             return true
         return false
     }

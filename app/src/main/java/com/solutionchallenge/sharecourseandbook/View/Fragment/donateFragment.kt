@@ -80,7 +80,7 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
 
             withContext(Dispatchers.Main){
                 tvCourseNameD.text=course?.title
-                tvCreatorOfCourse.text="This course created by "+course?.visible_instructors?.get(0)?.display_name?.toUpperCase()
+                tvAuthorBook.text="This course created by "+course?.visible_instructors?.get(0)?.display_name?.toUpperCase()
                 tvMajorD.text=args.request.studentUser.major+" Student"+" from "+args.request.studentUser.country
                 Glide.with(view).load(course?.image_480x270).placeholder(circularprogress).into(imageView4D)
                 tvCoursePriceD.text=args.coursePricex.toString()+""+args.currency

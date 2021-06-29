@@ -4,10 +4,13 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.BookRequest
 import com.solutionchallenge.sharecourseandbook.R
+import com.solutionchallenge.sharecourseandbook.View.Fragment.homeFragmentDirections
 import kotlinx.android.synthetic.main.book_donate_rv_view.view.*
 import kotlinx.android.synthetic.main.book_request_view.view.*
 
@@ -34,6 +37,11 @@ class bookDonateAdapter(var list: List<BookRequest>,var view:View) : RecyclerVie
             tvBookName2.text=book.name
             tvBookAuthor2.text=book.author_name
             tvBookPrice2.text=book.price.toString()+book.currency
+
+            btnBookDonate2.setOnClickListener {
+                  var action=homeFragmentDirections.actionHomeFragmentToBookDonateFragment(book.name,book.author_name,book.price,FirebaseAuth.getInstance().currentUser?.email.toString(),book.image_url)
+                Navigation.findNavController(view).navigate(action)
+            }
         }
 
     }
