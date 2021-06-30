@@ -39,7 +39,7 @@ class bookDonateFragment : Fragment(R.layout.book_donate_fragment) {
 
             var student=document.toObject<StudentUser>()
 
-            tvMajorD2.text=student?.major+" Sutudent"+" from ${student?.country}"
+            tvMajorD2.text=student?.major+" Student"+" from ${student?.country}"
 
 
         }

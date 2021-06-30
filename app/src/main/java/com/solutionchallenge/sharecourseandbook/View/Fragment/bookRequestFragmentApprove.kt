@@ -47,7 +47,7 @@ class bookRequestFragmentApprove : Fragment(R.layout.book_request_approve_fragme
 
         btnBookRequesrApprove.setOnClickListener {
             viewModel.saveBookRequest("${auth.currentUser?.email}",book)
-            Toast.makeText(requireContext(),"Bagış Talep Edildi",Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(),"Book Requested",Toast.LENGTH_LONG).show()
             val action=bookRequestFragmentApproveDirections.actionBookRequestFragmentApproveToProfileFragment()
             Navigation.findNavController(requireView()).navigate(action)
         }

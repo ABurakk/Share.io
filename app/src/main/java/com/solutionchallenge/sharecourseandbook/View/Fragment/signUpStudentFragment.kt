@@ -1,7 +1,6 @@
 package com.solutionchallenge.sharecourseandbook.View.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -20,13 +19,13 @@ import kotlinx.coroutines.launch
 class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
 
     lateinit var auth: FirebaseAuth
-    lateinit var viewModel:FirestoreViewModel
+    lateinit var vm:FirestoreViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
          auth=(activity as authActivity).auth
-         viewModel=(activity as authActivity).viewModel
+         vm=(activity as authActivity).viewModel
 
         var country="Turkey"
         var gender=""
@@ -95,7 +94,7 @@ class signUpStudentFragment :Fragment(R.layout.sign_up_student_fragment) {
 
 
     fun saveStudentToCollection(mail:String,studentUser: StudentUser)= CoroutineScope(Dispatchers.IO).launch {
-        viewModel.saveStudentToCollection(requireContext(),mail,studentUser)
+        vm.saveStudentToCollection(requireContext(),mail,studentUser)
     }
 
     fun String.isValid():Boolean{
