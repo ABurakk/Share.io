@@ -1,12 +1,9 @@
 package com.solutionchallenge.sharecourseandbook.View.Fragment
 
-import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -18,7 +15,7 @@ import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCours
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StudentUser
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -36,7 +33,7 @@ import java.util.*
 class onlineCourseFragment :Fragment(R.layout.online_course_request_fragment) {
 
     lateinit var auth: FirebaseAuth
-    lateinit var viewModel: FirestoreViewModel
+    lateinit var viewModel: vm
     lateinit var intentx:Intent
     lateinit var sharedPreferences: SharedPreferences
     var studentCollection=Firebase.firestore.collection("student")

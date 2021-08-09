@@ -5,14 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import com.google.firebase.auth.FirebaseAuth
 import com.labters.lottiealertdialoglibrary.ClickListener
 import com.labters.lottiealertdialoglibrary.DialogTypes
@@ -22,7 +20,7 @@ import kotlinx.android.synthetic.main.request_fragment.*
 class requestFragment :Fragment(R.layout.request_fragment) {
 
     lateinit var auth:FirebaseAuth
-    lateinit var viewModel: FirestoreViewModel
+    lateinit var viewModel: vm
     lateinit var intentx: Intent
     lateinit var sharedPreferences: SharedPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

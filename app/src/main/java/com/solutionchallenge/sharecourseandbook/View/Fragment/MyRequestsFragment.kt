@@ -11,16 +11,9 @@ import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCourseRequest
 import com.solutionchallenge.sharecourseandbook.R
-import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import com.solutionchallenge.sharecourseandbook.View.recyclerViewAdapters.myRequestsAdapter
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
-import kotlinx.android.synthetic.main.my_donations_fragment.*
 import kotlinx.android.synthetic.main.my_requests_fragment.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MyRequestsFragment :Fragment(R.layout.my_requests_fragment) {
 

@@ -9,7 +9,7 @@ import android.util.DisplayMetrics
 import androidx.lifecycle.ViewModelProvider
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import com.solutionchallenge.sharecourseandbook.ViewModel.ViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*
@@ -18,7 +18,7 @@ class authActivity : AppCompatActivity() {
 
     lateinit var intentx:Intent
     lateinit var auth: FirebaseAuth
-    lateinit var viewModel: FirestoreViewModel
+    lateinit var viewModel: vm
     lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class authActivity : AppCompatActivity() {
         if(auth.currentUser!=null){
             startActivity(intentx)
         }
-        viewModel= ViewModelProvider(this,factory).get(FirestoreViewModel::class.java)
+        viewModel= ViewModelProvider(this,factory).get(vm::class.java)
 
 
     }

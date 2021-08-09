@@ -12,12 +12,11 @@ import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.OnlineCours
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
 import com.solutionchallenge.sharecourseandbook.View.recyclerViewAdapters.onlineCourseAdapter
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
-import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.Book
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.BookRequest
 import com.solutionchallenge.sharecourseandbook.View.recyclerViewAdapters.bookDonateAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +25,7 @@ import kotlinx.android.synthetic.main.home_fragment.*
 @AndroidEntryPoint
 class homeFragment :Fragment(R.layout.home_fragment) {
 
-    lateinit var viewModel: FirestoreViewModel
+    lateinit var viewModel: vm
     lateinit var auth:FirebaseAuth
     lateinit var adapter: onlineCourseAdapter
     lateinit var adapter2:bookDonateAdapter

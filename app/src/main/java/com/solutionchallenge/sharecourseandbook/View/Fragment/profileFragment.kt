@@ -10,9 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.course_request.*
 import kotlinx.android.synthetic.main.profile_fragment.*
 
 class profileFragment :Fragment(R.layout.profile_fragment) {
@@ -20,7 +19,7 @@ class profileFragment :Fragment(R.layout.profile_fragment) {
 
     lateinit var intentx: Intent
     lateinit var auth: FirebaseAuth
-    lateinit var viewModel:FirestoreViewModel
+    lateinit var viewModel:vm
     lateinit var sharedPreferences: SharedPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

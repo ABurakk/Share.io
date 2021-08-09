@@ -9,7 +9,7 @@ import androidx.navigation.Navigation
 import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.StandartUser
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.View.Activity.authActivity
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.sign_up_normal_fragment.*
 import kotlinx.coroutines.CoroutineScope
@@ -21,7 +21,7 @@ class signUpNormalFragment :Fragment(R.layout.sign_up_normal_fragment) {
 
 
     lateinit var auth: FirebaseAuth
-    lateinit var viewModel:FirestoreViewModel
+    lateinit var viewModel:vm
     lateinit var intentx: Intent
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

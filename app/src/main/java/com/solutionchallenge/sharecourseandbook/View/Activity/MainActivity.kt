@@ -14,7 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import com.solutionchallenge.sharecourseandbook.ViewModel.ViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
     lateinit var intentx:Intent
-    lateinit var viewModel: FirestoreViewModel
+    lateinit var viewModel: vm
     lateinit var auth: FirebaseAuth
     lateinit var sharedPreferences:SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         var repository=FireStoreRepository()
         var factory=ViewModelFactory(repository)
-        viewModel=ViewModelProvider(this,factory).get(FirestoreViewModel::class.java)
+        viewModel=ViewModelProvider(this,factory).get(vm::class.java)
         var fragment=navHost.view!!.layoutParams
 
 

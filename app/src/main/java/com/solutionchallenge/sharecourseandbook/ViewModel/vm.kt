@@ -12,7 +12,7 @@ import com.solutionchallenge.sharecourseandbook.Model.FirebaseModels.SuccesfulDo
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import kotlinx.coroutines.launch
 
-class FirestoreViewModel(private var repository: FireStoreRepository) :ViewModel() {
+class vm(private var repository: FireStoreRepository) :ViewModel() {
 
 
 

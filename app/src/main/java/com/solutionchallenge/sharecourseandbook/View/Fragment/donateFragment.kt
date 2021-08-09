@@ -26,7 +26,7 @@ import com.solutionchallenge.sharecourseandbook.R
 import com.solutionchallenge.sharecourseandbook.RemoteApi.RetrofitObject
 import com.solutionchallenge.sharecourseandbook.Repository.FireStoreRepository
 import com.solutionchallenge.sharecourseandbook.View.Activity.MainActivity
-import com.solutionchallenge.sharecourseandbook.ViewModel.FirestoreViewModel
+import com.solutionchallenge.sharecourseandbook.ViewModel.vm
 import kotlinx.android.synthetic.main.donate_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -43,7 +43,7 @@ class donateFragment :Fragment(R.layout.donate_fragment),PurchasesUpdatedListene
     lateinit var circularprogress:CircularProgressDrawable
     lateinit var fireStoreRepository: FireStoreRepository
     lateinit var auth:FirebaseAuth
-    lateinit var viewModel:FirestoreViewModel
+    lateinit var viewModel:vm
     var currentUserType:String=""
     var curentUserBalance=0.0
     var currentUserMail=""
